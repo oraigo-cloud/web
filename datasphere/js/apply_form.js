@@ -39,8 +39,12 @@ document.getElementById("applicationForm").addEventListener("submit", async func
     console.log("Server response:", text);
 
     if (text.includes("✅ Success")) {
-      alert("✅ Your application has been submitted successfully!");
+      alert("✅ Your application has been submitted successfully! Redirecting to payment...");
       form.reset();
+      
+      // Redirect to payment page after successful submission
+      window.location.href = "https://payments.cashfree.com/forms/datasphere_application";
+
     } else {
       alert("⚠️ Something went wrong: " + text);
     }
