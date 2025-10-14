@@ -1,151 +1,288 @@
 <!doctype html>
 <html lang="en"><head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Adventure Saathi — Site Index / Sitemap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adventure Saathi — Explore the World with Us</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#06b6d4;--muted:#9ca3af;--glass:rgba(255,255,255,0.03)}
-    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
-    body{background:linear-gradient(180deg,#071022 0%, #081029 60%);color:#e6eef6;padding:36px}
-    .wrap{max-width:1000px;margin:0 auto}
-    header{display:flex;align-items:center;gap:20px;margin-bottom:22px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{font-size:20px;margin:0}
-    p.lead{color:var(--muted);margin:6px 0 18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    .card h2{margin:0 0 8px;font-size:16px}
-    .card ul{margin:0;padding-left:18px;color:var(--muted)}
-    .small{font-size:13px;color:var(--muted);margin-top:12px}
-    footer{margin-top:20px;color:var(--muted);font-size:13px}
-    a.link{color:var(--accent);text-decoration:none}
-    nav.sitemap{display:block}
-    code.badge{background:var(--glass);padding:3px 8px;border-radius:999px;font-size:12px;color:var(--accent)}
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #fff;
+    }
+    nav.navbar {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: #ff6f00;
+    }
+    .navbar-brand span {
+      color: #1abc9c;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #1abc9c, #ff6f00);
+      border: none;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(26,188,156,0.6), rgba(255,111,0,0.6));
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {font-weight: 700; font-size: 3rem;}
+    .hero p {font-size: 1.1rem; margin-bottom: 25px;}
+
+    /* Booking form in hero */
+    .booking-form {
+      position: relative;
+      z-index: 2; 
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    }
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      width: 100%;
+      background: #fff;
+      color: #333;
+    }
+    .booking-form input::placeholder,
+    .booking-form textarea::placeholder {
+      color: #888;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-title h2 {
+      font-weight: 700;
+      color: #1abc9c;
+    }
+
+    /* About */
+    .about-img img {
+      border-radius: 15px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Destinations */
+    .destination-card img {
+      border-radius: 12px;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .destination-card h5 {margin-top: 10px; color: #ff6f00;}
+
+    /* Testimonials */
+    .testimonial {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Footer */
+    footer {
+      background: #1abc9c;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
   </style>
 </head>
-
-<body>
-  <div class="wrap">
-    <header>
-      <div class="logo">AS</div>
-      <div>
-        <h1>Adventure Saathi — Site Index</h1>
-        <p class="lead">A simple HTML sitemap listing primary pages and subpages for the Adventure Saathi website.</p>
-      </div>
-    </header>
-
-    <nav class="sitemap">
-      <div class="grid">
-
-        <section class="card">
-          <h2>Home</h2>
-          <ul>
-            <li>Hero / Banner</li>
-            <li>Featured Destinations</li>
-            <li>Popular Activities / Packages</li>
-            <li>Testimonials</li>
-            <li><a class="link" href="/signup">Sign up / Join</a></li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>About Us</h2>
-          <ul>
-            <li>Our Story</li>
-            <li>Mission &amp; Vision</li>
-            <li>Team / Founders</li>
-            <li>Press / Media Mentions</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Adventures / Trips</h2>
-          <ul>
-            <li>Browse All Adventures</li>
-            <li>Filters: Destination, Activity, Duration, Difficulty, Budget</li>
-            <li>Trip Detail Page (itinerary, gallery, reviews)</li>
-            <li>Booking / Join Trip</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Destinations</h2>
-          <ul>
-            <li>Country / Region Index</li>
-            <li>Destination Overview Pages (e.g. Himachal Treks)</li>
-            <li>Maps &amp; Local Insights</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Find a Saathi</h2>
-          <ul>
-            <li>Profile Creation</li>
-            <li>Match Preferences &amp; Suggestions</li>
-            <li>In-app Chat / Requests</li>
-            <li>Safety Tips &amp; Community Guidelines</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Plan Your Trip</h2>
-          <ul>
-            <li>Custom Trip Planner</li>
-            <li>Group Trips &amp; Private Trips</li>
-            <li>Adventure Calendar</li>
-            <li>Payments &amp; Booking History</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Community</h2>
-          <ul>
-            <li>Travel Stories &amp; User Blogs</li>
-            <li>Photo &amp; Video Galleries</li>
-            <li>Discussion Forum / Q&amp;A</li>
-            <li>Local Events</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Blog / Resources</h2>
-          <ul>
-            <li>Guides (trekking, camping, water-sports)</li>
-            <li>Gear Checklists</li>
-            <li>Safety &amp; First Aid</li>
-            <li>Local Culture &amp; Food</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Contact &amp; Support</h2>
-          <ul>
-            <li>Contact Form</li>
-            <li>FAQs</li>
-            <li>Live Chat / WhatsApp</li>
-            <li>Emergency Helpline</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Legal &amp; Account</h2>
-          <ul>
-            <li>Login / Register</li>
-            <li>Account Settings</li>
-            <li>Privacy Policy</li>
-            <li>Terms &amp; Conditions</li>
-          </ul>
-        </section>
-
-      </div>
-    </nav>
-
-    <p class="small">Tip: Use these headings as top-level pages and create subpages for each bullet where appropriate. Add real links (hrefs) when you wireframes or build the site.</p>
-
-
+<body><!-- Navbar -->
+<nav class="navbar navbar-expand-lg py-3 sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Adventure <span>Saathi</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary ms-lg-3">Book Now</a>
+    </div>
   </div>
+</nav><!-- Hero Section -->
+<section class="hero text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 hero-content">
+        <h1>Find Your Next Great Adventure with Us</h1>
+        <p>Unforgettable journeys, expert guides, and handpicked destinations — all designed for explorers like you.</p>
+        <a href="#destinations" class="btn btn-light text-success fw-semibold">Explore Destinations</a>
+      </div>
+      <div class="col-lg-5 mt-5 mt-lg-0">
+        <div class="booking-form">
+          <h5 class="fw-bold mb-3">Book Your Adventure</h5>
+          <form id="bookingForm">
+            <div class="row g-3">
+              <div class="col-md-6"><input type="text" placeholder="Full Name" required></div>
+              <div class="col-md-6"><input type="email" placeholder="Email" required></div>
+              <div class="col-md-6"><input type="tel" placeholder="Phone" required></div>
+              <div class="col-md-6"><input type="text" placeholder="Destination"></div>
+              <div class="col-md-6"><input type="date"></div>
+              <div class="col-md-6">
+                <select>
+                  <option>Travellers</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3+</option>
+                </select>
+              </div>
+              <div class="col-12"><textarea rows="2" placeholder="Notes or Questions"></textarea></div>
+              <div class="col-12"><button class="btn btn-primary w-100" type="submit">Submit Request</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-      <div>© Adventure Saathi — Sitemap generated for design &amp; planning.</div>
-    </footer></body>
+<!-- About Section -->
+<section id="about" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 about-img">
+        <img src="https://images.unsplash.com/photo-1511732351157-1865efcb7b7b?q=80&w=1000" alt="Travelers">
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-success fw-bold">Why Choose Adventure Saathi</h2>
+        <p>We are passionate about crafting experiences that connect you with nature, culture, and local stories. From serene beaches to high-altitude treks, every itinerary is customized for you.</p>
+        <ul>
+          <li>🌍 Tailor-made travel plans</li>
+          <li>🏔 Experienced local guides</li>
+          <li>🚌 24/7 on-trip support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Destinations -->
+<section id="destinations" class="py-5 bg-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>Popular Destinations</h2>
+      <p>Explore some of the most loved destinations by our travelers</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800" alt="Goa">
+          <h5>Goa</h5>
+          <p>Sun, sand, and serenity for perfect relaxation.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1549887534-1541e9326641?q=80&w=800" alt="Manali">
+          <h5>Manali</h5>
+          <p>Snow-capped mountains and adventure at every turn.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="destination-card">
+          <img src="https://images.unsplash.com/photo-1583434931421-ec2b94f928a8?q=80&w=800" alt="Kerala">
+          <h5>Kerala</h5>
+          <p>Backwaters, greenery, and peace in God’s own country.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="py-5">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Travelers Say</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="testimonial">
+          <p>“Adventure Saathi planned our honeymoon to perfection. From the flights to the resort, everything was seamless.”</p>
+          <strong>- Priya & Rohan</strong>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <p>“The Himachal trek was beyond words. The guides were professional and the scenery unforgettable.”</p>
+          <strong>- Aarav M.</strong>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <p>“Their team is super helpful. They even customized my itinerary when I had to change dates last minute.”</p>
+          <strong>- Meera K.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container text-center">
+    <div class="section-title">
+      <h2>Get In Touch</h2>
+    </div>
+    <p>Have a question or ready to plan your next adventure? Reach out to us today!</p>
+    <p><strong>Email:</strong> info@adventuresaathi.com | <strong>Phone:</strong> +91 98765 43210</p>
+    <a href="#bookingForm" class="btn btn-primary">Start Planning</a>
+  </div>
+</section><!-- Footer -->
+<footer>
+  <div class="container">
+    <p>© 2025 Adventure Saathi — Crafted adventures for modern explorers.</p>
+  </div>
+</footer><!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you for contacting Adventure Saathi! We will reach out soon.');
+  });
+</script>
+</body>
 </html>
