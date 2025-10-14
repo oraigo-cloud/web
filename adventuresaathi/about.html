@@ -55,6 +55,15 @@
       z-index: 2;
     }
 
+    .navbar-brand img {
+      max-height: 50px;
+      transition: transform 0.2s ease;
+    }
+
+    .navbar-brand img:hover {
+      transform: scale(1.05);
+    }
+
     .hero h1 {font-weight: 700; font-size: 3rem;}
     .hero p {font-size: 1.1rem; margin-bottom: 25px;}
 
@@ -128,6 +137,14 @@
 <body><!-- Navbar -->
 <nav class="navbar navbar-expand-lg py-3 sticky-top">
   <div class="container">
+    
+        <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="img/logo.png" alt="Adventure Saathi Logo" height="50" class="me-2">
+      <span class="fw-bold text-success">Adventure Saathi</span>
+    </a>
+
+
     <a class="navbar-brand" href="#">Adventure <span>Saathi</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
