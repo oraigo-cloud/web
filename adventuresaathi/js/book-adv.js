@@ -15,6 +15,25 @@ function showCountdownAlert() {
   showNext();
 }
 
+function startCountdown() {
+  const popup = document.getElementById('countdownPopup');
+  const timerEl = document.getElementById('timer');
+  let count = 10;
+
+  popup.style.display = 'block';
+
+  const interval = setInterval(() => {
+    timerEl.textContent = count;
+    count--;
+    if (count < 0) {
+      clearInterval(interval);
+      popup.style.display = 'none';
+      alert("✅ You’re all set! We will contact you shortly.");
+    }
+  }, 1000);
+}
+
+
 function countdownAlert() {
   let count = 10; // start countdown
 
@@ -49,7 +68,9 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   //alert('Thank you for contacting Adventure Saathi! We will reach out soon. \nPlease wait for a few seconds ..');
 
   //showCountdownAlert();
-  countdownAlert();
+  //countdownAlert();
+  startCountdown();
+
 
   try {
     const response = await fetch("https://script.google.com/macros/s/AKfycbz15jkIZpAFfwDM5QVVCUKTx7b4xfNTrz2SGJPaE4e9pwKf8py73Hd6IeLoG3_mf02u/exec", {
