@@ -173,7 +173,7 @@
       </div>
 
       <div class="project">
-        <h3>litesites</h3>
+        <h3>LiteSites</h3>
         <p>Lightweight Websites. Big Impact.</p>
         <a href="https://litesites.planetdigit.com" target="_blank">View Project →</a>
       </div>
@@ -182,15 +182,60 @@
   </section>
 
   <section id="contact">
+
     <h2>Start Your Website Today</h2>
-    <form action="#" method="post">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="business" placeholder="Business Name" required>
-      <textarea name="message" rows="4" placeholder="Tell us about your website needs"></textarea>
-      <button type="submit">Submit</button>
-    </form>
+
+
+      <form id="contactBusinessForm" class="p-4 bg-light rounded-3 shadow-sm">
+        <div class="mb-3">
+          <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" name="business" id="business" class="form-control" placeholder="Business Name" required>
+        </div>
+        <div class="mb-3">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Tell us about your website needs"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+
+      <!-- Countdown popup -->
+      <div id="contactPopup" style="
+          display:none;
+          position:fixed;
+          top:50%;
+          left:50%;
+          transform:translate(-50%, -50%);
+          padding:30px 40px;
+          background-color:#fff;
+          border:3px solid #007bff;
+          border-radius:10px;
+          font-size:18px;
+          font-weight:bold;
+          color:#333;
+          text-align:center;
+          z-index:9999;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      ">
+        <div>Thank you for contacting us!</div>
+        <div>Please wait a few seconds...</div>
+        <div style="font-size:24px; color:#007bff; margin-top:10px;">
+          <span id="contactTimer">10</span>
+        </div>
+      </div>
+
+
+
   </section>  <footer>
     <p>© 2025 LiteSites. All rights reserved.</p>
-  </footer></body>
+  </footer>
+
+
+
+</body>
+
+<script src="contact-bs-form.js"></script>
 </html>
