@@ -11,6 +11,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
   formData.append("Reason", form.reason.value);
   formData.append("Message", form.message.value);
 
+  startCountdown();
+
   try {
     const response = await fetch("https://script.google.com/macros/s/AKfycbynxcjVf3YMMkWxkpfjYSk7YAOE0h6UWfaLfWAoOchKkuOletnqRt5mjJKTUGGWxYKmww/exec", {
       method: "POST",
