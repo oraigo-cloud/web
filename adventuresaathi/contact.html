@@ -190,7 +190,7 @@
     <a href="#contact-form" class="btn btn-success fw-semibold">Contact Us Now</a>
   </div>
 </section>
-<footer>
+<foooter>
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
@@ -235,49 +235,56 @@
       </div>
     </div>
 
-    <!-- Contact Info & Subscribe -->
+    <!-- Contact Info -->
+   
     <div class="col-lg-3 col-md-6 mb-5">
       <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Get in Touch</h5>
       <p><i class="fa fa-clock me-2"></i>Monday – Saturday, 9AM – 7PM</p>
       <p><i class="fa fa-phone-alt me-2"></i>8808970991</p>
       <p><i class="fa fa-envelope me-2"></i>saathiadventure@gmail.com</p>
-
       <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 3px;">Stay Updated</h6>
 
-      <!-- Subscribe Form -->
-      <form id="subscribeForm" class="w-100">
-        <div class="input-group">
-          <input type="email" name="email" id="email" class="form-control border-light" placeholder="Your Email" required style="padding:12px;">
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </div>
-      </form>
 
-      <!-- Countdown popup -->
-      <div id="subscribePopup" style="
-          display:none;
-          position:fixed;
-          top:50%;
-          left:50%;
-          transform:translate(-50%, -50%);
-          padding:30px 40px;
-          background-color:#fff;
-          border:3px solid #007bff;
-          border-radius:10px;
-          font-size:18px;
-          font-weight:bold;
-          color:#333;
-          text-align:center;
-          z-index:9999;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      ">
-        <div>Thank you for subscribing!</div>
-        <div>Please wait a few seconds...</div>
-        <div style="font-size:24px; color:#007bff; margin-top:10px;">
-          <span id="subscribeTimer">10</span>
-        </div>
+      <!--<div class="w-100">-->
+
+      <form id="subscribeForm" class="w-100">
+      <div class="input-group">
+        <input type="email" name="email" id="email" class="form-control border-light" style="padding: 20px;" placeholder="Your Email" required>
+        <button type="submit" class="btn btn-primary px-3">Subscribe</button>
       </div>
+    </form>
+
+<!-- Countdown popup -->
+<div id="subscribePopup" style="
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    padding:30px 40px;
+    background-color:#fff;
+    border:3px solid #007bff;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+    text-align:center;
+    z-index:9999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+">
+  <div>Thank you for subscribing!</div>
+  <div>Please wait a few seconds...</div>
+  <div style="font-size:24px; color:#007bff; margin-top:10px;">
+    <span id="subscribeTimer">10</span>
+  </div>
+</div>
+
+
+
+
 
     </div>
+
   </div>
 </div>
 
@@ -292,6 +299,7 @@
     </div>
   </div>
 </div>
+<!-- Footer End -->
 
 </footer>
 <!-- Bootstrap JS -->
