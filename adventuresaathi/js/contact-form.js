@@ -1,20 +1,20 @@
-function showCountdownAlert() {
-  const baseMessage = "Thank you for contacting Adventure Saathi! We will reach out soon.\nPlease wait for a few seconds ..\n";
-  let count = 10;
+function startCountdown() {
+  const popup = document.getElementById('countdownPopup');
+  const timerEl = document.getElementById('timer');
+  let count = 5;
 
-  function showNext() {
-    if (count > 0) {
-      alert(baseMessage + count);
-      count--;
-      showNext(); // recursive call
-    } else {
-      alert("✅ You’re all set! We will contact you shortly.");
+  popup.style.display = 'block';
+
+  const interval = setInterval(() => {
+    timerEl.textContent = count;
+    count--;
+    if (count < 0) {
+      clearInterval(interval);
+      popup.style.display = 'none';
+      //alert("✅ You’re all set! We will contact you shortly.");
     }
-  }
-
-  showNext();
+  }, 1000);
 }
-
 document.getElementById("contactForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
