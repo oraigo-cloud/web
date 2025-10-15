@@ -1,3 +1,20 @@
+function showCountdownAlert() {
+  const baseMessage = "Thank you for contacting Adventure Saathi! We will reach out soon.\nPlease wait for a few seconds ..\n";
+  let count = 10;
+
+  function showNext() {
+    if (count > 0) {
+      alert(baseMessage + count);
+      count--;
+      showNext(); // recursive call
+    } else {
+      alert("✅ You’re all set! We will contact you shortly.");
+    }
+  }
+
+  showNext();
+}
+
 document.getElementById("contactForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
