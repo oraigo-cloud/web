@@ -8,7 +8,7 @@ document.getElementById("contactBusinessForm").addEventListener("submit", async 
   const popup = document.getElementById('contactPopup');
   const timerEl = document.getElementById('contactTimer');
   popup.style.display = 'block';
-  let count = 10;
+  let count = 5;
 
   const interval = setInterval(() => {
     timerEl.textContent = count;
@@ -17,7 +17,7 @@ document.getElementById("contactBusinessForm").addEventListener("submit", async 
       clearInterval(interval);
       popup.style.display = 'none';
     }
-  }, 1000);
+  }, 500);
 
   const formData = new FormData();
   formData.append("Name", form.name.value);
