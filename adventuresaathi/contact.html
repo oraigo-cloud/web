@@ -107,24 +107,40 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <form id="contactForm" class="p-4 bg-light rounded-3 shadow-sm">
-          <div class="row g-3">
-            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
-            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required></div>
-            <div class="col-md-6"><input type="tel" class="form-control" placeholder="Phone Number"></div>
-            <div class="col-md-6">
-              <select class="form-select">
-                <option value="">Reason for Contact</option>
-                <option>Trip Inquiry</option>
-                <option>Collaboration</option>
-                <option>Support</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="col-12"><textarea class="form-control" rows="4" placeholder="Your Message" required></textarea></div>
-            <div class="col-12"><button type="submit" class="btn btn-primary w-100">Submit Message</button></div>
-          </div>
-        </form>
+
+
+<form id="contactForm" class="p-4 bg-light rounded-3 shadow-sm">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <input type="text" name="fullName" id="fullName" class="form-control" placeholder="Full Name" required>
+    </div>
+    <div class="col-md-6">
+      <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" required>
+    </div>
+    <div class="col-md-6">
+      <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+    </div>
+    <div class="col-md-6">
+      <select name="reason" id="reason" class="form-select">
+        <option value="">Reason for Contact</option>
+        <option>Trip Inquiry</option>
+        <option>Collaboration</option>
+        <option>Support</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <textarea name="message" id="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary w-100">Submit Message</button>
+    </div>
+  </div>
+</form>
+
+
+
+
       </div>
     </div>
   </div>
@@ -257,5 +273,6 @@
 -->
 
 <script src="js/book-adv.js"></script>
+<script src="js/contact-form.js"></script>
 </body>
 </html>
