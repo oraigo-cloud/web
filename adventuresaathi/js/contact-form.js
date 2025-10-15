@@ -1,6 +1,6 @@
 function startCountdown() {
-  const popup = document.getElementById('countdownPopup');
-  const timerEl = document.getElementById('timer');
+  const popup = document.getElementById('countdownPopup2');
+  const timerEl = document.getElementById('timer2');
   let count = 5;
 
   popup.style.display = 'block';
