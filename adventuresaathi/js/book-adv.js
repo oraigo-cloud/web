@@ -14,7 +14,7 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   formData.append("Notes", form.notes.value);
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyxpyE2RRzZJ3PRnvZBARaS4CkbSdh7pLHAZoKZKNfdjXMJ99WvsXMBr9Pyf5jWl4DbAg/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzUZ4RDuEZkCuVKc4aOp5UmCKzY5xDXy1KiXfd-rBZC/dev", {
       method: "POST",
       body: formData
     });
