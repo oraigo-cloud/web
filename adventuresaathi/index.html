@@ -62,25 +62,45 @@
       <div class="col-lg-5 mt-5 mt-lg-0">
         <div class="booking-form">
           <h5 class="fw-bold mb-3">Book Your Adventure</h5>
-          <form id="bookingForm">
-            <div class="row g-3">
-              <div class="col-md-6"><input type="text" placeholder="Full Name" required></div>
-              <div class="col-md-6"><input type="email" placeholder="Email" required></div>
-              <div class="col-md-6"><input type="tel" placeholder="Phone" required></div>
-              <div class="col-md-6"><input type="text" placeholder="Destination"></div>
-              <div class="col-md-6"><input type="date"></div>
-              <div class="col-md-6">
-                <select>
-                  <option>Travellers</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3+</option>
-                </select>
-              </div>
-              <div class="col-12"><textarea rows="2" placeholder="Notes or Questions"></textarea></div>
-              <div class="col-12"><button class="btn btn-primary w-100" type="submit">Submit Request</button></div>
-            </div>
-          </form>
+
+
+
+<form id="bookingForm">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
+    </div>
+    <div class="col-md-6">
+      <input type="email" name="email" id="email" placeholder="Email" required>
+    </div>
+    <div class="col-md-6">
+      <input type="tel" name="phone" id="phone" placeholder="Phone" required>
+    </div>
+    <div class="col-md-6">
+      <input type="text" name="destination" id="destination" placeholder="Destination">
+    </div>
+    <div class="col-md-6">
+      <input type="date" name="date" id="date">
+    </div>
+    <div class="col-md-6">
+      <select name="travellers" id="travellers">
+        <option value="">Travellers</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3+</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <textarea name="notes" id="notes" rows="2" placeholder="Notes or Questions"></textarea>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary w-100" type="submit">Submit Request</button>
+    </div>
+  </div>
+</form>
+
+
+
         </div>
       </div>
     </div>
@@ -275,5 +295,7 @@
     alert('Thank you for contacting Adventure Saathi! We will reach out soon.');
   });
 </script>
+
+<script src="book-adv.js"></script>
 </body>
 </html>
