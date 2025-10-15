@@ -17,7 +17,7 @@ document.getElementById("contactBusinessForm").addEventListener("submit", async 
       clearInterval(interval);
       popup.style.display = 'none';
     }
-  }, 500);
+  }, 1000);
 
   const formData = new FormData();
   formData.append("Name", form.name.value);
