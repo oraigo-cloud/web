@@ -12,7 +12,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
   formData.append("Message", form.message.value);
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwjbZ5Y9TarkzxRoepBdOxfNDRHWpUqLgunQCeTw9hUxfXO6lkrLmvSEtnfiHRoO_v5BA/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbynxcjVf3YMMkWxkpfjYSk7YAOE0h6UWfaLfWAoOchKkuOletnqRt5mjJKTUGGWxYKmww/exec", {
       method: "POST",
       body: formData
     });
