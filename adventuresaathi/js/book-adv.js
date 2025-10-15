@@ -1,5 +1,6 @@
 document.getElementById("bookingForm").addEventListener("submit", async function(e) {
   e.preventDefault();
+  alert('Thank you for contacting Adventure Saathi! We will reach out soon.');
 
   const form = e.target;
   const formData = new FormData();
