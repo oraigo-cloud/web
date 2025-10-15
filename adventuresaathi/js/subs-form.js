@@ -29,7 +29,7 @@ document.getElementById("subscribeForm").addEventListener("submit", async functi
   formData.append("Email", email);
 
   try {
-    const response = await fetch("YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbwTD-eFAxrhw66YGX8BMEPkWTV05K5AQJfagBDvfeYLJknpTBJdVmjZjfElNTCW4mXdjA/exec", {
       method: "POST",
       body: formData
     });
