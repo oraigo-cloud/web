@@ -28,14 +28,14 @@ function startCountdown() {
     if (count < 0) {
       clearInterval(interval);
       popup.style.display = 'none';
-      alert("✅ You’re all set! We will contact you shortly.");
+      //alert("✅ You’re all set! We will contact you shortly.");
     }
   }, 1000);
 }
 
 
 function countdownAlert() {
-  let count = 10; // start countdown
+  let count = 5; // start countdown
 
   function next() {
     if (count > 0) {
