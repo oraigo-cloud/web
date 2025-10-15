@@ -13,7 +13,7 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   formData.append("Travellers", form.travellers.value);
   formData.append("Notes", form.notes.value);
 
-  alert('Thank you for contacting Adventure Saathi! We will reach out soon.');
+  alert('Thank you for contacting Adventure Saathi! We will reach out soon. \nPlease wait for a few seconds ..');
 
 
   try {
