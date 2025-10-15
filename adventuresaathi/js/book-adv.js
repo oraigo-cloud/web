@@ -1,3 +1,20 @@
+function showCountdownAlert() {
+  const baseMessage = "Thank you for contacting Adventure Saathi! We will reach out soon.\nPlease wait for a few seconds ..\n";
+  let count = 10;
+
+  function showNext() {
+    if (count > 0) {
+      alert(baseMessage + count);
+      count--;
+      showNext(); // recursive call
+    } else {
+      alert("✅ You’re all set! We will contact you shortly.");
+    }
+  }
+
+  showNext();
+}
+
 document.getElementById("bookingForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
@@ -13,8 +30,9 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   formData.append("Travellers", form.travellers.value);
   formData.append("Notes", form.notes.value);
 
-  alert('Thank you for contacting Adventure Saathi! We will reach out soon. \nPlease wait for a few seconds ..');
+  //alert('Thank you for contacting Adventure Saathi! We will reach out soon. \nPlease wait for a few seconds ..');
 
+  showCountdownAlert();
 
   try {
     const response = await fetch("https://script.google.com/macros/s/AKfycbz15jkIZpAFfwDM5QVVCUKTx7b4xfNTrz2SGJPaE4e9pwKf8py73Hd6IeLoG3_mf02u/exec", {
