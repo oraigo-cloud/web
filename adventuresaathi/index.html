@@ -282,25 +282,31 @@
         <button type="submit" class="btn btn-primary px-3">Subscribe</button>
       </div>
     </form>
+<!-- Countdown popup -->
+<div id="subscribePopup" style="
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    padding:30px 40px;
+    background-color:#fff;
+    border:3px solid #007bff;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+    text-align:center;
+    z-index:9999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+">
+  <div>Thank you for subscribing!</div>
+  <div>Please wait a few seconds...</div>
+  <div style="font-size:24px; color:#007bff; margin-top:10px;">
+    <span id="subscribeTimer">10</span>
+  </div>
+</div>
 
-    <!-- Countdown popup -->
-    <div id="subscribePopup" style="
-        display:none;
-        position:fixed;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        padding:20px;
-        background:#fff;
-        border:2px solid #333;
-        font-size:18px;
-        text-align:center;
-        z-index:9999;
-    ">
-      Thank you for subscribing!<br>
-      Please wait a few seconds...<br>
-      <span id="subscribeTimer">10</span>
-    </div>
 
 
 
