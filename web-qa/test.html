@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body><!-- Top Navigation Bar -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">QA Docs</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">QA Process</a></li>
+      <li><a href="bug_identification.html">Bug Reporting</a></li>
+      <li><a href="test_case_creation.html">Test Cases</a></li>
+      <li><a href="cb_cd_testing.html">Cross-Browser Testing</a></li>
+      <li><a href="live_dev.html">Live vs Dev</a></li>
+      <li><a href="site_accuracy.html">Design Comp Accuracy</a></li>
+      <li><a href="onboarding.html">QA onboarding</a></li>
+      <li><a href="automated_testing.html">Automated Testing</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Navigation CSS -->
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .top-nav {
+    background-color: #1e3a8a;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-nav .logo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nav-links li a:hover {
+    text-decoration: underline;
+  }
+  .nav-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #1e3a8a;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links li {
+      padding: 0.5em 1em;
+    }
+  }
+</style>
+
+<!-- Navigation JS -->
+<script>
+  const toggleButton = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggleButton.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+<br>
+<br>  <div class="container">
+    <h1>QA Process Design — WordPress Site</h1>
+    <p><strong>Scenario:</strong> Custom theme, 5 plugins (2 custom), 20 blog posts. Client expects high performance, mobile responsiveness, SEO best practices, and WCAG 2.1 AA accessibility compliance.</p>
+
+    <h2>1. Key Testing Areas</h2>
+    <ul>
+      <li><strong>Functionality:</strong> Check all pages, menus, forms, logins, plugins, and blog posts.</li>
+      <li><strong>Responsiveness:</strong> Test layouts on mobile, tablet, and desktop.</li>
+      <li><strong>Performance:</strong> Measure page speed, load time, and Core Web Vitals.</li>
+      <li><strong>SEO:</strong> Verify meta tags, titles, headings, sitemap, and schema.</li>
+      <li><strong>Accessibility (WCAG 2.1 AA):</strong> Check keyboard use, alt text, color contrast, labels.</li>
+      <li><strong>Security & Privacy:</strong> SSL, plugin updates, no debug info, GDPR compliance.</li>
+      <li><strong>Content & Visuals:</strong> Correct text, images, links, and formatting.</li>
+    </ul>
+
+    <h2>2. Tools & Methods</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Functional</td>
+          <td>Manual test cases, Cypress/Playwright</td>
+        </tr>
+        <tr>
+          <td>Responsive</td>
+          <td>Chrome DevTools, BrowserStack</td>
+        </tr>
+        <tr>
+          <td>Performance</td>
+          <td>Lighthouse, PageSpeed Insights, WebPageTest</td>
+        </tr>
+        <tr>
+          <td>SEO</td>
+          <td>Screaming Frog, Yoast/RankMath, Google Search Console</td>
+        </tr>
+        <tr>
+          <td>Accessibility</td>
+          <td>Axe, WAVE, Accessibility Insights, NVDA/VoiceOver</td>
+        </tr>
+        <tr>
+          <td>Security</td>
+          <td>WPScan, DevTools (headers), manual checks</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. QA Steps</h2>
+    <ol>
+      <li>Smoke test – Verify site loads, no broken features.</li>
+      <li>Functional testing – Test all features & plugins.</li>
+      <li>Responsive check – Test key pages across devices/browsers.</li>
+      <li>Performance audit – Run Lighthouse & WebPageTest.</li>
+      <li>SEO audit – Check tags, structure, and sitemap.</li>
+      <li>Accessibility audit – Automated + manual screen reader checks.</li>
+      <li>Security review – Validate configurations & privacy.</li>
+      <li>Regression testing – After bug fixes.</li>
+      <li>Final sign-off – All critical issues resolved.</li>
+    </ol>
+
+    <h2>4. QA Report Template</h2>
+    <p><strong>QA Report – [Project Name]</strong></p>
+    <p>Date: [YYYY-MM-DD] Environment: [Staging/Prod]</p>
+    <p>QA Lead: [Name]</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Area</th>
+          <th>Issue</th>
+          <th>Severity</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Functionality</td>
+          <td>Contact form fails on submit</td>
+          <td>High</td>
+          <td>Open</td>
+          <td>500 error</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Accessibility</td>
+          <td>Missing alt text on hero image</td>
+          <td>Medium</td>
+          <td>Fixed</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Summary</h3>
+    <p>Tests Run: 100 Passed: 92 Failed: 8</p>
+    <p>Blockers: 0 High Priority: 3</p>
+    <p>Next Steps: Fix open issues, re-test, and confirm sign-off.</p>
+
+    <p><a href="index.html">← Back to QA Navigation</a></p>
+  </div>    <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
