@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body>  <div class="container">
+    <h1>Task 3: Test Case Creation</h1>
+    <p>This document outlines test cases for the <strong>Before & After Image Manager</strong> WordPress plugin, covering functional, performance, and edge case scenarios.</p>
+
+    <h2>Test Case 1 – Functional Test: Image Upload Validation</h2>
+    <p><strong>Objective:</strong> Verify that the plugin correctly validates image dimensions (minimum 500x500 px).</p>
+    <p><strong>Preconditions:</strong></p>
+    <ul>
+      <li>User has access to the WordPress admin panel.</li>
+      <li>Plugin is installed and activated.</li>
+    </ul>
+    <p><strong>Steps:</strong></p>
+    <ol>
+      <li>Go to <em>Before & After Gallery → Add New Case</em>.</li>
+      <li>Try uploading an image smaller than 500x500 px (e.g., 400x400).</li>
+      <li>Observe the error or validation message.</li>
+      <li>Upload an image with correct dimensions (e.g., 800x800).</li>
+      <li>Save the case.</li>
+    </ol>
+    <p><strong>Expected Results:</strong></p>
+    <ul>
+      <li>Step 2: Upload fails with message “Image must be at least 500x500 pixels.”</li>
+      <li>Step 5: Upload succeeds, image is saved and displayed correctly.</li>
+    </ul>
+    <p><strong>Type:</strong> Functional<br>
+       <strong>Priority:</strong> High<br>
+       <strong>Status:</strong> Pass/Fail</p>
+
+    <h2>Test Case 2 – Performance Test: Gallery Load Speed</h2>
+    <p><strong>Objective:</strong> Ensure that gallery pages load efficiently when displaying multiple before/after cases.</p>
+    <p><strong>Preconditions:</strong></p>
+    <ul>
+      <li>Plugin is configured with at least 20 before/after cases.</li>
+      <li>Caching enabled (if available).</li>
+    </ul>
+    <p><strong>Steps:</strong></p>
+    <ol>
+      <li>Open the gallery page on the front end.</li>
+      <li>Measure page load time using Lighthouse or GTmetrix.</li>
+      <li>Compare load time against acceptable threshold (≤3 seconds).</li>
+    </ol>
+    <p><strong>Expected Results:</strong></p>
+    <ul>
+      <li>Page loads within 3 seconds on standard broadband.</li>
+      <li>No console or network errors.</li>
+      <li>Smooth image transitions or sliders with no lag.</li>
+    </ul>
+    <p><strong>Type:</strong> Performance<br>
+       <strong>Priority:</strong> Medium<br>
+       <strong>Status:</strong> Pass/Fail</p>
+
+    <h2>Test Case 3 – Edge Case: Category Ordering Logic</h2>
+    <p><strong>Objective:</strong> Validate that cases display correctly when assigned to both primary and secondary categories.</p>
+    <p><strong>Preconditions:</strong></p>
+    <ul>
+      <li>At least 3 cases exist.</li>
+      <li>Each case has a primary and secondary category.</li>
+    </ul>
+    <p><strong>Steps:</strong></p>
+    <ol>
+      <li>Assign Case A as primary category “Skincare”, secondary “Face”.</li>
+      <li>Assign Case B as primary “Skincare”, secondary “Body”.</li>
+      <li>Reorder cases under “Skincare”.</li>
+      <li>Open the “Face” and “Body” galleries.</li>
+    </ol>
+    <p><strong>Expected Results:</strong></p>
+    <ul>
+      <li>Case order in secondary categories reflects the same order set in the primary category.</li>
+      <li>No duplication or missing cases.</li>
+    </ul>
+    <p><strong>Type:</strong> Edge Case / Functional<br>
+       <strong>Priority:</strong> High<br>
+       <strong>Status:</strong> Pass/Fail</p>
+
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>
+    <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
