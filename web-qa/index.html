@@ -27,9 +27,281 @@
 </head>
 
 <body>
+<body>
+
+  <div class="container">
+    <header>
+      <div>
+        <h1>QA Process — WordPress Site (Custom Theme + 5 Plugins)</h1>
+        <div class="meta">Deliverable: Step-by-step QA process covering functionality, performance, SEO & WCAG 2.1 AA</div>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div class="small">Prepared: <strong><!--DATE--></strong></div>
+        <div class="small">Environment: <strong>Staging</strong></div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Quick Start — Environment & Smoke Test</h2>
+      <ol>
+        <li><strong>Confirm environments:</strong> staging URL (not production), credentials for Admin, Editor, Subscriber/test user.</li>
+        <li><strong>Browser / device matrix:</strong> note devices and browsers to test (see Responsive section).</li>
+        <li><strong>Smoke test (15–30 min):</strong> load main pages (home, blog list, single post, contact, about). Check critical flows: login, contact form, search, newsletter signup, plugin-specific features. If a critical failure appears, mark as <span class="badge">Blocker</span> and stop deeper QA.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Key Testing Areas</h2>
+      <ul>
+        <li>Functional / Feature testing</li>
+        <li>Responsive / Cross-browser</li>
+        <li>Performance & Core Web Vitals</li>
+        <li>SEO & structured data</li>
+        <li>Accessibility — WCAG 2.1 AA</li>
+        <li>Security & privacy basics</li>
+        <li>Content / copy / media validation</li>
+        <li>Plugin & theme integration / regression</li>
+        <li>Usability / visual QA / style</li>
+        <li>Release readiness & sign-off</li>
+      </ul>
+    </section>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <h2>Detailed Tests, Tools & Methods</h2>
+
+          <h3>1. Functional / Feature testing</h3>
+          <p class="small">What to check</p>
+          <ul>
+            <li>All pages load; nav/menu/footer links; 404 handling.</li>
+            <li>Forms (contact, comment, signup): client & server validation, success messages, email receipts.</li>
+            <li>Authentication: login, logout, password reset, role-based access (Admin/Editor/Subscriber).</li>
+            <li>Plugin features: test both custom plugins end-to-end and third-party plugin behavior.</li>
+            <li>CRUD for posts/pages; search, pagination, category/tag pages; RSS & sitemap.xml.</li>
+          </ul>
+          <p class="small">Tools & methods</p>
+          <ul>
+            <li>Manual test matrix (spreadsheet) with test cases and pass/fail.</li>
+            <li>Browser DevTools network tab & console for Ajax/JS errors.</li>
+            <li>Automated E2E: <code>Playwright</code> or <code>Cypress</code> for critical flows (login, contact form, publish post).</li>
+            <li>WP-CLI for DB/option inspection if needed.</li>
+          </ul>
+
+          <h3>2. Responsive & Cross-browser</h3>
+          <p class="small">What to check</p>
+          <ul>
+            <li>Layout at key viewports: mobile, tablet, desktop. Tap targets, font sizes, image scaling, hamburger menu behavior.</li>
+            <li>Breakpoint behavior for all theme components.</li>
+          </ul>
+          <p class="small">Tools & methods</p>
+          <ul>
+            <li>DevTools device toolbar for quick checks; <code>BrowserStack</code> or <code>Sauce Labs</code> for real-device cross-browser testing.</li>
+            <li>Minimum test list: Chrome, Firefox, Safari (macOS & iOS), Edge, Android Chrome (real devices where possible).</li>
+          </ul>
+
+          <h3>3. Performance & Core Web Vitals</h3>
+          <p class="small">What to check</p>
+          <ul>
+            <li>LCP, FID/INP, CLS; page weight; number of requests; TTFB.</li>
+          </ul>
+          <p class="small">Tools & methods</p>
+          <ul>
+            <li><code>Lighthouse</code> (Chrome DevTools) per page (home, blog list, single post, contact).</li>
+            <li><code>WebPageTest</code> for realistic throttling and filmstrip.</li>
+            <li><code>PageSpeed Insights</code> for field + lab data.</li>
+            <li>Server-side: <code>Query Monitor</code>, <code>New Relic</code> for slow queries and bottlenecks.</li>
+          </ul>
+
+          <h3>4. SEO</h3>
+          <p class="small">What to check</p>
+          <ul>
+            <li>Unique title tags & meta descriptions, correct heading structure (H1 per page), meta robots & canonical tags, sitemap.xml, robots.txt.</li>
+            <li>Article schema for blog posts, Organization schema for site, image alt text, social tags (OpenGraph/Twitter).</li>
+          </ul>
+          <p class="small">Tools & methods</p>
+          <ul>
+            <li><code>Screaming Frog</code> to crawl for missing tags / duplicates / broken links.</li>
+            <li>Google Search Console property & sitemap submission.</li>
+            <li><code>Rich Results Test</code> for structured data validation.</li>
+          </ul>
+
+          <h3>5. Accessibility — WCAG 2.1 AA</h3>
+          <p class="small">Priority checks</p>
+          <ul>
+            <li>Color contrast ratios (>= 4.5:1 for normal text), keyboard navigation, correct ARIA roles & landmarks, form labels & error messaging, skip-to-content link, focus management on modals, no reliance on color alone.</li>
+            <li>Captions/transcripts for multimedia if present.</li>
+          </ul>
+          <p class="small">Tools & methods</p>
+          <ul>
+            <li><code>Axe DevTools</code> browser extension for automated checks.</li>
+            <li><code>WAVE</code> and <code>Accessibility Insights</code> to surface common issues.</li>
+            <li>Manual testing with <strong>NVDA</strong> (Windows) and <strong>VoiceOver</strong> (macOS/iOS); test zoom (200%) and increased text size.</li>
+          </ul>
+
+          <h3>6. Security & Privacy (basic)</h3>
+          <ul>
+            <li>WP_DEBUG off in production, remove unused plugins/themes, strong salts in <code>wp-config.php</code>, correct file permissions.</li>
+            <li>SSL/TLS present, HSTS header, disable XML-RPC if unused, review REST API exposures.</li>
+          </ul>
+          <p class="small">Tools & methods</p>
+          <ul>
+            <li><code>WPScan</code> for known vulnerabilities (run with permission on staging), header checks for security headers.</li>
+            <li>Verify GDPR/privacy considerations for form data and cookie consent.</li>
+          </ul>
+
+          <h3>7. Content / Media QA</h3>
+          <ul>
+            <li>Spellcheck and proofread all 20 blog posts, verify featured images and alt text, validate internal/external links, author attribution, published dates, categories/tags.</li>
+            <li>Tools: browser spellchecker, Screaming Frog for broken links, spreadsheet checklist per post.</li>
+          </ul>
+
+          <h3>8. Plugin & Theme Integration</h3>
+          <ul>
+            <li>Confirm custom theme and plugins don’t conflict with third-party plugins; test plugin settings persist and front-end effects; inspect console & PHP logs for errors.</li>
+            <li>Tools: Query Monitor, WP_DEBUG_LOG on staging, PHPUnit (if unit tests exist for custom plugins).</li>
+          </ul>
+
+        </section>
+
+        <section class="card">
+          <h2>Test Plan Prioritization & Matrix</h2>
+          <p class="small">Priority definitions</p>
+          <ul>
+            <li><strong>P0 (Blocker):</strong> site down, critical flows fail, major accessibility keyboard failure, severe performance regression.</li>
+            <li><strong>P1 (High):</strong> SEO-critical missing tags, major mobile visual break, JS errors blocking features.</li>
+            <li><strong>P2 (Medium):</strong> minor accessibility contrast issues, non-critical missing alt text, slow queries.</li>
+            <li><strong>P3 (Low):</strong> typos, small analytics misconfig, style polish.</li>
+          </ul>
+
+          <p class="small">Sample spreadsheet columns</p>
+          <table>
+            <thead>
+              <tr><th>Test ID</th><th>Area</th><th>Test description</th><th>Steps</th><th>Expected</th><th>Status</th><th>Severity</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>QA-001</td><td>Forms</td><td>Contact form submission</td><td>Fill & submit</td><td>200 + email</td><td>Fail</td><td>P0</td></tr>
+              <tr><td>QA-002</td><td>Accessibility</td><td>Keyboard nav on homepage</td><td>Tab through interactive elements</td><td>All reachable; focus visible</td><td>Pass</td><td>P1</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card">
+          <h2>Automation & CI Suggestions</h2>
+          <ul>
+            <li>Run Lighthouse CI in GitHub Actions on PRs for main templates/pages.</li>
+            <li>Use Playwright/Cypress for smoke E2E tests on deploy.</li>
+            <li>Static checks: PHPCS (WP Coding Standards), ESLint for JS.</li>
+            <li>Run Axe accessibility checks in CI to catch regressions early.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Defect Reporting & Workflow</h2>
+          <ul>
+            <li>Use issue tracker (Jira/GitHub Issues/Trello). Triage daily: devs fix → QA verify → close.</li>
+            <li>Every bug: reproducible steps, environment, severity, attachments (screenshots / logs).</li>
+            <li>Blockers require immediate hotfix on staging, then retest before production deploy.</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Release Readiness & Sign-off Criteria</h2>
+          <ul>
+            <li>All P0 issues resolved and verified.</li>
+            <li>≥90% of P1 resolved OR documented client acceptance of remaining P1s.</li>
+            <li>Accessibility: critical WCAG 2.1 AA violations fixed; remaining items documented with remediation plan.</li>
+            <li>Performance baseline recorded; recommended thresholds met (client-defined).</li>
+            <li>SEO: sitemap & robots present; no duplicate title/H1 issues; article schema implemented.</li>
+            <li>Security checklist completed (SSL, perms, unused plugins removed).</li>
+            <li>Final smoke test on production post-deploy & stakeholder sign-off.</li>
+          </ul>
+        </section>
+
+      </main>
+
+      <aside>
+        <section class="card">
+          <h2>Compact QA Report Template</h2>
+          <p class="small">Copy/paste this into your bug tracker or client report.</p>
+          <pre style="white-space:pre-wrap;font-size:13px;background:#fbfdff;padding:10px;border-radius:8px;border:1px solid #edf2f7">QA Report — [Project Name]
+Environment: Staging — https://staging.example.com
+Date: 2025-10-24
+QA Owner: [Your Name]
+Build/Release: v1.0.0 (commit: abc123)
+
+Summary
+Total tests executed: 120
+Passed: 105 | Failed: 12 | Blockers: 1 | In progress: 2
+
+Blockers & High Priority
+Blocker: Contact form submission returns 500 on staging.
+Severity: P0
+Steps to reproduce: Go to /contact → fill form → click submit.
+Actual: 500 server error.
+Expected: 200 and “Thank you” message + email sent.
+Env: Staging (Chrome 118, macOS)
+Attachment: screenshot_500.png, debug.log excerpt lines 120-130
+Assigned to: backend-team — Due: 2025-10-25
+
+Other Issues (sample)
+ID | Area | Title | Severity | Status | Assigned | Notes
+QA-012 | Accessibility | Missing form labels on newsletter signup | P1 | Open | frontend | use <label for> or aria-label
+QA-017 | Performance | LCP > 4s on homepage (mobile) | P1 | Open | frontend | optimize hero image; defer JS
+QA-022 | SEO | Duplicate meta title on category pages | P2 | Fixed | SEO-owner | fixed in Yoast settings
+
+Test coverage highlights:
+- Functionality: main flows covered (login, publish, forms).
+- Accessibility: Axe scan + manual keyboard/VoiceOver checks on 5 pages.
+- Performance: Lighthouse audits for Home, Blog list, Single Post, Contact.
+
+Recommendations & Next steps:
+- Fix P0 immediately: contact form 500 error.
+- Resolve color contrast failures listed in Accessibility report.
+- Implement caching + image optimization; re-run Lighthouse.
+- Re-run Screaming Frog after fixes.
+
+Signoff:
+QA Lead: ___________________ Date: ______
+Dev Lead: __________________ Date: ______
+Client: _____________________ Date: ______
+</pre>
+        </section>
+
+        <section class="card">
+          <h2>Quick Checklist (printable)</h2>
+          <ul>
+            <li>Staging URL & credentials verified</li>
+            <li>Smoke tests passed</li>
+            <li>All P0 resolved</li>
+            <li>Keyboard navigation complete on main flows</li>
+            <li>Axe automated pass (no critical)</li>
+            <li>Lighthouse baseline recorded</li>
+            <li>Sitemap.xml & robots.txt OK</li>
+            <li>All 20 posts: images have alt, grammar reviewed, links valid</li>
+            <li>Plugin config sanity checked & no console errors</li>
+            <li>Security basics validated (SSL, WP_DEBUG=false)</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Deliverables to hand over</h2>
+          <ul>
+            <li>Test matrix spreadsheet + execution results (CSV/Google Sheet)</li>
+            <li>Bug/issue list in issue tracker (triaged)</li>
+            <li>Accessibility report (Axe + manual notes)</li>
+            <li>Lighthouse & WebPageTest reports</li>
+            <li>Final QA sign-off checklist & remediation list</li>
+          </ul>
+        </section>
+
+      </aside>
+    </div>
 
 
-<body>    <footer>
+  </div>
+
+    <footer>
       <div>Need any edits or want this exported to a PDF/Word doc? Reply and I’ll include it.</div>
     </footer>
 
