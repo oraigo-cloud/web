@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body>  <div class="container">
+    <h1>Task 5: Live vs. Dev Site Consistency</h1>
+    <p>This section outlines the QA approach to ensure the new WordPress development site is consistent with the live site in terms of navigation, content, links, functionality, design, and performance.</p>
+
+    <h2>1. Checklist for Comparing Live vs. Dev Site</h2>
+
+    <h3>A. Navigation & Structure</h3>
+    <ul>
+      <li>All main and sub-navigation items match (labels, order, destination URLs).</li>
+      <li>Footer menus and links are identical.</li>
+      <li>Internal linking between pages is consistent.</li>
+    </ul>
+
+    <h3>B. Page Content</h3>
+    <ul>
+      <li>Page titles, headings (H1–H3), and body text match.</li>
+      <li>Images and videos are correct and load properly.</li>
+      <li>Alt text, captions, and formatting are consistent.</li>
+      <li>Blog posts, dates, and categories are correct.</li>
+    </ul>
+
+    <h3>C. Links</h3>
+    <ul>
+      <li>All internal/external links point to correct destinations.</li>
+      <li>No broken or redirected links.</li>
+      <li>Buttons lead to correct pages or forms.</li>
+    </ul>
+
+    <h3>D. Features & Functionality</h3>
+    <ul>
+      <li>Contact forms, search, sliders, and pop-ups work as expected.</li>
+      <li>Plugins (e.g., galleries, before/after sliders) behave the same.</li>
+      <li>Interactive elements (hover effects, modals, accordions) function consistently.</li>
+    </ul>
+
+    <h3>E. Design & Layout</h3>
+    <ul>
+      <li>Fonts, colors, spacing, and logo placement match.</li>
+      <li>Responsive behavior (mobile/tablet/desktop) mirrors the live site.</li>
+      <li>No alignment or overflow issues.</li>
+    </ul>
+
+    <h3>F. Performance</h3>
+    <ul>
+      <li>Page load speed is comparable or improved on the dev site.</li>
+      <li>No console or JavaScript errors.</li>
+    </ul>
+
+    <h2>2. Handling Discrepancies</h2>
+    <ul>
+      <li>Log each difference with screenshots and page URLs.</li>
+      <li><strong>Categorize discrepancies:</strong></li>
+      <ul>
+        <li><strong>Expected Change:</strong> Approved improvements or redesigns.</li>
+        <li><strong>Unintended Difference:</strong> Must be fixed to match the live site.</li>
+      </ul>
+      <li><strong>Prioritize fixes by impact:</strong></li>
+      <ul>
+        <li><strong>High:</strong> Broken functionality or navigation.</li>
+        <li><strong>Medium:</strong> Content mismatch or design inconsistency.</li>
+        <li><strong>Low:</strong> Minor visual difference or spacing.</li>
+      </ul>
+      <li>Communicate with client and dev team — confirm which changes are intentional before fixing.</li>
+      <li>Re-test after fixes to ensure consistency is restored.</li>
+    </ul>
+
+    <h2>3. Sample Report – Live vs. Dev Site Comparison</h2>
+    <p><strong>Project:</strong> Client WordPress Redesign<br>
+    <strong>Date:</strong> 2025-10-24<br>
+    <strong>Tester:</strong> [Your Name]</p>
+    <p><strong>Environment:</strong><br>
+    Live Site: <a href="https://clientsite.com" target="_blank">https://clientsite.com</a><br>
+    Dev Site: <a href="https://dev.clientsite.com" target="_blank">https://dev.clientsite.com</a></p>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:10px;">
+      <thead style="background:#f0f4ff;">
+        <tr>
+          <th>ID</th>
+          <th>Page/Section</th>
+          <th>Element</th>
+          <th>Live Behavior</th>
+          <th>Dev Behavior</th>
+          <th>Type</th>
+          <th>Severity</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LV-01</td>
+          <td>Main Navigation</td>
+          <td>“About Us” link</td>
+          <td>Goes to /about-us</td>
+          <td>Broken link (404)</td>
+          <td>Functionality</td>
+          <td>High</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td>LV-02</td>
+          <td>Home Slider</td>
+          <td>3 slides</td>
+          <td>Only 2 slides showing</td>
+          <td>Content</td>
+          <td>Medium</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td>LV-03</td>
+          <td>Footer</td>
+          <td>Copyright text</td>
+          <td>“© 2024 Client Co.”</td>
+          <td>“© 2023 Client Co.”</td>
+          <td>Content</td>
+          <td>Low</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td>LV-04</td>
+          <td>Contact Form</td>
+          <td>Form submission behavior</td>
+          <td>Sends confirmation email</td>
+          <td>No confirmation message</td>
+          <td>Functionality</td>
+          <td>High</td>
+          <td>In Progress</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Summary:</h3>
+    <ul>
+      <li>Total discrepancies: <strong>4</strong></li>
+      <li>High priority: <strong>2</strong> Medium: <strong>1</strong> Low: <strong>1</strong></li>
+      <li><strong>Actions:</strong> Dev team to fix links and form behavior; confirm footer year update.</li>
+    </ul>
+
+    <h3>✅ Deliverables:</h3>
+    <ul>
+      <li>Completed checklist.</li>
+      <li>Discrepancy report (Excel/Google Sheet).</li>
+      <li>Screenshots for visual mismatches.</li>
+      <li>Summary email with high-impact issues for client review.</li>
+    </ul>
+
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>    <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
