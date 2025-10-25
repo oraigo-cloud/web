@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body><body>
+  <div class="container">
+    <h1>Compact QA Report Template</h1>
+    <p>This standalone template can be copied into Jira, Trello, or sent to the client as part of the QA deliverables.</p>
+    <pre>QA Report — [Project Name]
+Environment: Staging — https://staging.example.com
+Date: 2025-10-24
+QA Owner: [Your Name]
+Build/Release: v1.0.0 (commit: abc123)
+
+Summary
+Total tests executed: 120
+Passed: 105 | Failed: 12 | Blockers: 1 | In progress: 2
+
+Blockers & High Priority
+Blocker: Contact form submission returns 500 on staging.
+Severity: P0
+Steps to reproduce: Go to /contact → fill form → click submit.
+Actual: 500 server error.
+Expected: 200 and “Thank you” message + email sent.
+Env: Staging (Chrome 118, macOS)
+Attachment: screenshot_500.png, debug.log excerpt lines 120-130
+Assigned to: backend-team — Due: 2025-10-25
+
+Other Issues (sample)
+ID | Area | Title | Severity | Status | Assigned | Notes
+QA-012 | Accessibility | Missing form labels on newsletter signup | P1 | Open | frontend | use <label for> or aria-label
+QA-017 | Performance | LCP > 4s on homepage (mobile) | P1 | Open | frontend | optimize hero image; defer JS
+QA-022 | SEO | Duplicate meta title on category pages | P2 | Fixed | SEO-owner | fixed in Yoast settings
+
+Test coverage highlights:
+- Functionality: main flows covered (login, publish, forms).
+- Accessibility: Axe scan + manual keyboard/VoiceOver checks on 5 pages.
+- Performance: Lighthouse audits for Home, Blog list, Single Post, Contact.
+
+Recommendations & Next steps:
+- Fix P0 immediately: contact form 500 error.
+- Resolve color contrast failures listed in Accessibility report.
+- Implement caching + image optimization; re-run Lighthouse.
+- Re-run Screaming Frog after fixes.
+
+Signoff:
+QA Lead: ___________________ Date: ______
+Dev Lead: __________________ Date: ______
+Client: _____________________ Date: ______</pre>
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>    <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
