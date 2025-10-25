@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body>  <div class="container">
+    <h1>Task 4: Cross-Browser and Cross-Device Testing</h1>
+    <p>This document outlines the testing strategy, tools, and issue documentation method for ensuring consistent performance of a WordPress site across various browsers and devices.</p>
+
+    <h2>1. Objective</h2>
+    <p>Ensure the WordPress site provides a consistent, functional, and visually accurate experience across major browsers, operating systems, and devices.</p>
+
+    <h2>2. Testing Strategy</h2>
+    <h3>Step 1: Define Scope & Coverage</h3>
+    <p><strong>Browsers:</strong></p>
+    <ul>
+      <li>Google Chrome (latest + previous version)</li>
+      <li>Mozilla Firefox (latest)</li>
+      <li>Safari (latest on macOS & iOS)</li>
+      <li>Microsoft Edge (latest)</li>
+    </ul>
+    <p><strong>Devices:</strong></p>
+    <ul>
+      <li>Desktop: Windows, macOS</li>
+      <li>Tablet: iPad (iOS), Android tablets</li>
+      <li>Mobile: iPhone (Safari), Android (Chrome)</li>
+    </ul>
+
+    <h3>Step 2: Identify Key Pages & Features</h3>
+    <ul>
+      <li>Homepage</li>
+      <li>Blog/post pages</li>
+      <li>Contact form / lead form</li>
+      <li>Navigation menu & footer</li>
+      <li>Custom features (sliders, galleries, plugins)</li>
+    </ul>
+
+    <h3>Step 3: Testing Methods</h3>
+    <ul>
+      <li><strong>Functional Testing:</strong> Verify buttons, links, forms, and navigation.</li>
+      <li><strong>Visual/UI Testing:</strong> Check layout, spacing, fonts, and images.</li>
+      <li><strong>Responsive Testing:</strong> Verify breakpoint behavior and element resizing.</li>
+      <li><strong>Performance Testing:</strong> Measure load times on mobile and desktop.</li>
+    </ul>
+
+    <h3>Step 4: Execution</h3>
+    <ul>
+      <li>Test manually on real and virtual devices.</li>
+      <li>Capture screenshots or screen recordings of inconsistencies.</li>
+      <li>Log issues in a shared tracker (e.g., Jira, Trello, Google Sheet).</li>
+    </ul>
+
+    <h2>3. Tools to Use</h2>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:8px;">
+      <thead style="background:#f0f4ff;">
+        <tr><th align="left">Purpose</th><th align="left">Tools</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cross-browser/device testing</td><td>BrowserStack, LambdaTest, Sauce Labs</td></tr>
+        <tr><td>Responsive preview</td><td>Chrome DevTools, Firefox Responsive Design Mode</td></tr>
+        <tr><td>Visual comparison</td><td>Percy, Applitools</td></tr>
+        <tr><td>Performance checks</td><td>Lighthouse, GTmetrix</td></tr>
+        <tr><td>Bug tracking</td><td>Jira, Trello, ClickUp</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Issue Documentation & Prioritization</h2>
+    <p>Below is an example bug log showing how issues can be recorded and prioritized during cross-browser and cross-device testing.</p>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:8px;">
+      <thead style="background:#f0f4ff;">
+        <tr>
+          <th>ID</th>
+          <th>Page</th>
+          <th>Issue</th>
+          <th>Browser/Device</th>
+          <th>Severity</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Screenshot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CB-01</td>
+          <td>Homepage</td>
+          <td>Slider images overlap</td>
+          <td>iPhone 13, Safari</td>
+          <td>Functional</td>
+          <td>High</td>
+          <td>Open</td>
+          <td>slider_overlap.png</td>
+        </tr>
+        <tr>
+          <td>CB-02</td>
+          <td>Contact Form</td>
+          <td>“Submit” button misaligned</td>
+          <td>Firefox (Windows)</td>
+          <td>UI</td>
+          <td>Medium</td>
+          <td>Open</td>
+          <td>contact_btn.png</td>
+        </tr>
+        <tr>
+          <td>CB-03</td>
+          <td>Menu</td>
+          <td>Hover color unreadable (contrast issue)</td>
+          <td>Chrome (Desktop)</td>
+          <td>Accessibility</td>
+          <td>Low</td>
+          <td>Open</td>
+          <td>menu_contrast.png</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Severity Levels:</h3>
+    <ul>
+      <li><strong>High:</strong> Breaks core functionality or layout.</li>
+      <li><strong>Medium:</strong> Affects usability but has a workaround.</li>
+      <li><strong>Low:</strong> Minor cosmetic issue.</li>
+    </ul>
+
+    <h3>Priority Levels:</h3>
+    <ul>
+      <li><strong>P1 (High):</strong> Fix before release.</li>
+      <li><strong>P2 (Medium):</strong> Fix in next sprint.</li>
+      <li><strong>P3 (Low):</strong> Fix if time permits.</li>
+    </ul>
+
+    <h2>5. Summary</h2>
+    <ul>
+      <li>✅ Test on major browsers and real devices.</li>
+      <li>✅ Use BrowserStack or similar for automation and device coverage.</li>
+      <li>✅ Prioritize issues based on user impact (function > layout > design).</li>
+      <li>✅ Re-test all high-priority issues after fixes to confirm consistency.</li>
+    </ul>
+
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>
+=    <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
