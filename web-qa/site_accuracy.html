@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body>  <div class="container">
+    <h1>Task 6: Design Comp vs. Dev Site Accuracy</h1>
+    <p>This section outlines the approach to verify that the client’s design comp has been accurately implemented in the WordPress dev site.</p>
+
+    <h2>1. Approach to Verifying Design Accuracy</h2>
+
+    <h3>Step 1: Prepare</h3>
+    <ul>
+      <li>Obtain final approved design comps (Figma, Adobe XD, Sketch).</li>
+      <li>Ensure access to the staging/dev site.</li>
+      <li>Note design specs: font families, sizes, colors (HEX/RGB), padding, margins, button states, etc.</li>
+    </ul>
+
+    <h3>Step 2: Visual Comparison</h3>
+    <ul>
+      <li>Compare design comp side-by-side with dev site pages.</li>
+      <li>Verify the following:</li>
+      <ul>
+        <li><strong>Typography:</strong> Font family, weight, size, line-height, color.</li>
+        <li><strong>Layout:</strong> Section spacing, alignment, grid structure.</li>
+        <li><strong>Colors:</strong> Backgrounds, text, buttons, hover states.</li>
+        <li><strong>Interactive Elements:</strong> Buttons, sliders, links, hover/focus behavior.</li>
+        <li><strong>Images & Icons:</strong> Correct assets, positioning, proportions.</li>
+      </ul>
+      <li>Check both desktop and mobile views for responsive accuracy.</li>
+    </ul>
+
+    <h3>Step 3: Validation & Documentation</h3>
+    <ul>
+      <li>Capture screenshots showing design vs. dev differences.</li>
+      <li>Use measurement tools to compare spacing and size.</li>
+      <li>Log discrepancies in a QA tracker (Jira, Excel, Trello).</li>
+      <li>Classify issues by severity:
+        <ul>
+          <li><strong>High:</strong> Breaks layout or brand guidelines.</li>
+          <li><strong>Medium:</strong> Minor spacing or color mismatch.</li>
+          <li><strong>Low:</strong> Subtle alignment or typographic variation.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>2. Tools & Techniques</h2>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:8px;">
+      <thead style="background:#f0f4ff;">
+        <tr><th align="left">Purpose</th><th align="left">Tool / Method</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Design comparison</td><td>PixelSnap, PerfectPixel, Figma Inspect, Adobe XD Spec Mode</td></tr>
+        <tr><td>CSS inspection</td><td>Chrome DevTools, Firefox DevTools</td></tr>
+        <tr><td>Color & typography check</td><td>Contrast Checker, WhatFont, ColorZilla</td></tr>
+        <tr><td>Responsive testing</td><td>BrowserStack, Chrome Device Mode</td></tr>
+        <tr><td>Collaboration</td><td>Jira, Trello, Google Sheets for tracking issues</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Sample Discrepancy & Report</h2>
+    <p><strong>Discrepancy Example:</strong> Button styling inconsistent with design comp.</p>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:8px;">
+      <tbody>
+        <tr><td><strong>Bug ID</strong></td><td>DC-05</td></tr>
+        <tr><td><strong>Page/Section</strong></td><td>Homepage – Hero Banner</td></tr>
+        <tr><td><strong>Design Spec</strong></td><td>Button color: #0055FF, Font: Poppins Bold 16px, Border-radius: 8px</td></tr>
+        <tr><td><strong>Actual (Dev Site)</strong></td><td>Button color: #0066CC, Font: Open Sans Bold 14px, Border-radius: 4px</td></tr>
+        <tr><td><strong>Severity</strong></td><td>Medium</td></tr>
+        <tr><td><strong>Expected Result</strong></td><td>Button styling should match design comp exactly.</td></tr>
+        <tr><td><strong>Steps to Reproduce</strong></td><td>Open https://dev.clientsite.com, scroll to Hero Banner, compare button to Figma comp.</td></tr>
+        <tr><td><strong>Attachments</strong></td><td>Screenshot_comparison.png (Figma vs. Dev)</td></tr>
+        <tr><td><strong>Status</strong></td><td>Open</td></tr>
+        <tr><td><strong>Assigned To</strong></td><td>Frontend Developer</td></tr>
+      </tbody>
+    </table>
+
+    <h3>✅ Summary:</h3>
+    <ul>
+      <li>Use design specs and pixel comparison tools for accuracy.</li>
+      <li>Test across breakpoints for responsive fidelity.</li>
+      <li>Log and prioritize deviations based on visual or functional impact.</li>
+      <li>Re-test after fixes to confirm alignment with design.</li>
+    </ul>
+
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>
+     <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
