@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body><body>
+  <div class="container">
+    <h1>Task 2: Bug Identification and Reporting</h1>
+    <p>This document outlines how to identify, describe, and report bugs found during QA testing of a WordPress website.</p>
+
+    <h2>1. Contact Form Not Submitting Data</h2>
+    <h3>Root Cause Investigation</h3>
+    <ul>
+      <li>Check browser console for JavaScript or AJAX errors during submission.</li>
+      <li>Use the Network tab to inspect POST requests and server responses.</li>
+      <li>Review <code>wp-content/debug.log</code> for PHP or plugin errors.</li>
+      <li>Test for plugin conflicts by disabling others or switching to a default theme.</li>
+      <li>Verify form settings: endpoint, email setup, and reCAPTCHA configuration.</li>
+    </ul>
+
+    <h3>Description for Developer</h3>
+    <p>When submitting the contact form, no confirmation message appears and data is not received. The POST request fails, likely due to an AJAX or backend validation error.</p>
+
+    <h2>2. Homepage Slider Breaks on iPhone 13 (Safari)</h2>
+    <h3>Root Cause Investigation</h3>
+    <ul>
+      <li>Reproduce on iPhone 13 Safari using BrowserStack or a real device.</li>
+      <li>Check console errors via remote debugging.</li>
+      <li>Inspect CSS and JS for compatibility issues (e.g., <code>object-fit</code>, <code>flex</code>, <code>IntersectionObserver</code>).</li>
+      <li>Verify slider plugin version and responsive settings.</li>
+      <li>Test disabling custom JS to isolate conflicts.</li>
+    </ul>
+
+    <h3>Description for Developer</h3>
+    <p>The homepage slider fails to display correctly on iPhone 13 Safari. Slides overlap or disappear, likely due to a mobile-specific JS or CSS bug.</p>
+
+    <h2>3. Page Load Speed Exceeds 6 Seconds</h2>
+    <h3>Root Cause Investigation</h3>
+    <ul>
+      <li>Run Lighthouse/PageSpeed Insights for bottlenecks (images, render-blocking scripts).</li>
+      <li>Check hosting response time (TTFB) using WebPageTest.</li>
+      <li>Use Query Monitor for slow queries or excessive requests.</li>
+      <li>Review caching, CDN, and image compression setup.</li>
+    </ul>
+
+    <h3>Description for Developer</h3>
+    <p>Homepage takes over 6 seconds to load. Performance audit shows large unoptimized images and multiple blocking JS files. Needs optimization for caching, images, and JS delivery.</p>
+
+    <h2>4. Header Navigation Fails WCAG Contrast Requirements</h2>
+    <h3>Root Cause Investigation</h3>
+    <ul>
+      <li>Use Axe or WAVE to confirm contrast ratio.</li>
+      <li>Check CSS variables or theme colors applied to links.</li>
+      <li>Test normal and hover states for all navigation links.</li>
+      <li>Review <code>style.css</code> or SCSS color assignments.</li>
+    </ul>
+
+    <h3>Description for Developer</h3>
+    <p>Header navigation links have insufficient contrast (2.8:1) against background. WCAG 2.1 AA requires at least 4.5:1. Adjust link colors to meet contrast standards.</p>
+
+    <h2>Sample Bug Report (for Developer)</h2>
+    <pre>Bug ID: QA-004
+Title: Contact form not submitting data on staging site
+
+Environment:
+URL: https://staging.example.com/contact
+Browser: Chrome 129, macOS
+WP Version: 6.5
+Plugin: Contact Form 7 (customized)
+
+Description:
+When submitting the contact form, the page reloads without showing a success message, and no data/email is received.
+
+Steps to Reproduce:
+1. Go to /contact
+2. Fill in all fields with valid data
+3. Click “Submit”
+
+Expected Result:
+Form submits successfully, shows a “Thank you” message, and sends email notification.
+
+Actual Result:
+Form reloads; no confirmation message or email received.
+
+Console / Network Evidence:
+Console shows Uncaught TypeError: Cannot read property 'response' of undefined.
+Network tab: POST request returns 500 error.
+
+Severity: High (Form submission broken)
+Priority: P0 — Must fix before release
+
+Suggested Fix:
+Investigate custom AJAX handler or plugin conflict; verify form endpoint and nonce validation.
+
+Attachments:
+Screenshot: contact-form-error.png
+Console log: form_submit_error.txt</pre>
+
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>    <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
