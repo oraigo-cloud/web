@@ -26,7 +26,107 @@
   </style>
 </head>
 
-<body>    <footer>
+<body><!-- Top Navigation Bar -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">QA Docs</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+    <ul class="nav-links">
+      <li><a href="compactqa.html">Task 1: QA Process</a></li>
+      <li><a href="bug-report.html">Task 2: Bug Reporting</a></li>
+      <li><a href="test-cases.html">Task 3: Test Cases</a></li>
+      <li><a href="cross-browser.html">Task 4: Cross-Browser Testing</a></li>
+      <li><a href="live-vs-dev.html">Task 5: Live vs Dev</a></li>
+      <li><a href="design-comp.html">Task 6: Design Comp Accuracy</a></li>
+      <li><a href="automated-testing.html">Task 7: Automated Testing</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Navigation CSS -->
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .top-nav {
+    background-color: #1e3a8a;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-nav .logo {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nav-links li a:hover {
+    text-decoration: underline;
+  }
+  .nav-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #1e3a8a;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .nav-links li {
+      padding: 0.5em 1em;
+    }
+  }
+</style>
+
+<!-- Navigation JS -->
+<script>
+  const toggleButton = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggleButton.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+    <footer>
       <div>QA Process</div>
     </footer>
 
