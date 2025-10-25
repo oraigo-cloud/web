@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QA Process — WordPress Site (Custom Theme + Plugins)</title>
+  <style>
+    :root{--accent:#0b63ff;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+    h1{font-size:24px;margin:0}
+    .meta{color:var(--muted);font-size:14px}
+    .card{background:var(--card);border-radius:12px;padding:20px;margin:16px 0;box-shadow:0 6px 18px rgba(12,20,30,0.06)}
+    h2{font-size:18px;margin-top:0}
+    ul{margin:8px 0 16px 20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .kbd{background:#111;color:#fff;padding:2px 6px;border-radius:6px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border:1px solid #eef2f7;padding:8px;text-align:left;font-size:13px}
+    th{background:#f1f5f9}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:24px;color:var(--muted);font-size:13px}
+    .badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 8px;border-radius:8px;font-size:12px}
+  </style>
+</head>
+
+<body>  <div class="container">
+    <h1>Task 7: Bonus (Optional) — Automated Testing for WordPress QA</h1>
+    <p>This section outlines an approach for integrating automated testing into the QA process for WordPress sites to save time, reduce human error, and maintain consistent quality.</p>
+
+    <h2>1. Approach to Automated Testing</h2>
+    <p>Automated testing complements manual QA by handling repetitive and regression tasks efficiently.</p>
+
+    <h3>Step 1: Identify Test Types to Automate</h3>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:8px;">
+      <thead style="background:#f0f4ff;">
+        <tr><th>Test Type</th><th>Purpose</th><th>Example in WordPress</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Smoke / Sanity Tests</td><td>Quickly verify critical flows work</td><td>Login/logout, homepage loads, contact form submission, post creation</td></tr>
+        <tr><td>Functional / End-to-End Tests</td><td>Verify complete workflows</td><td>Publish a blog post, submit a form, add items to a gallery, slider functionality</td></tr>
+        <tr><td>Regression Tests</td><td>Ensure updates don’t break existing features</td><td>Theme updates, plugin updates, custom functionality</td></tr>
+        <tr><td>UI / Visual Regression</td><td>Detect unintended design changes</td><td>Compare dev site to design comp (pixel-by-pixel or layout snapshots)</td></tr>
+        <tr><td>Accessibility Tests</td><td>Validate WCAG 2.1 compliance</td><td>Keyboard navigation, ARIA roles, contrast ratios</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Step 2: Select Tools</h3>
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin-top:8px;">
+      <thead style="background:#f0f4ff;">
+        <tr><th>Purpose</th><th>Recommended Tools</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>End-to-End / Functional</td><td>Cypress, Playwright, Selenium</td></tr>
+        <tr><td>Visual Regression</td><td>Percy, BackstopJS, Applitools</td></tr>
+        <tr><td>Unit Testing / PHP</td><td>PHPUnit (custom plugins & theme functions)</td></tr>
+        <tr><td>Accessibility</td><td>Axe-core (integrated in Cypress/Playwright)</td></tr>
+        <tr><td>CI/CD Integration</td><td>GitHub Actions, GitLab CI, CircleCI</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Step 3: Integration into QA Process</h3>
+    <ul>
+      <li>Set up automated test suite for core workflows:
+        <ul>
+          <li>Login/logout</li>
+          <li>Add/edit posts/pages</li>
+          <li>Contact form submission</li>
+          <li>Gallery / slider features</li>
+        </ul>
+      </li>
+      <li>Automate visual checks:
+        <ul>
+          <li>Capture screenshots of critical pages and compare them to baseline images.</li>
+        </ul>
+      </li>
+      <li>Automate accessibility checks:
+        <ul>
+          <li>Integrate Axe in CI to detect color contrast, missing labels, and ARIA issues automatically.</li>
+        </ul>
+      </li>
+      <li>Integrate with CI/CD:
+        <ul>
+          <li>Run automated tests on every pull request or staging deployment.</li>
+          <li>Fail builds if critical tests fail.</li>
+        </ul>
+      </li>
+      <li>Maintenance:
+        <ul>
+          <li>Update tests when theme/plugin features change.</li>
+          <li>Keep visual snapshots and baseline accessibility rules current.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Step 4: Benefits</h3>
+    <ul>
+      <li>Faster regression testing after plugin/theme updates.</li>
+      <li>Reduced human error in repetitive tasks.</li>
+      <li>Immediate feedback to developers via CI/CD pipelines.</li>
+      <li>Automated monitoring of accessibility and performance regressions.</li>
+    </ul>
+
+    <h3>Example Automated Workflow</h3>
+    <ol>
+      <li>Developer pushes code to GitHub.</li>
+      <li>CI/CD pipeline triggers:
+        <ul>
+          <li>Run PHPUnit tests for backend functionality.</li>
+          <li>Run Cypress/Playwright E2E tests for key flows.</li>
+          <li>Run Axe accessibility tests on staging pages.</li>
+          <li>Run visual regression tests via Percy/BackstopJS.</li>
+        </ul>
+      </li>
+      <li>Report generated automatically — failed tests logged with screenshots and errors.</li>
+      <li>QA team reviews any high-severity failures before production release.</li>
+    </ol>
+
+    <h3>Illustration</h3>
+    <p><img src="automated-testing-for-wordpress-qa.png" alt="Automated Testing for WordPress QA" style="max-width:100%;height:auto;"></p>
+
+    <p><a href="index.html">← Back to QA Process</a></p>
+  </div>
+     <footer>
+      <div>QA Process</div>
+    </footer>
+
+</body>
+</html>
