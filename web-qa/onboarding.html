@@ -130,82 +130,76 @@
 
 <br>
 <br>  <div class="container">
-    <h1>Test Case Creation</h1>
-    <p>This document outlines test cases for the <strong>Before & After Image Manager</strong> WordPress plugin, covering functional, performance, and edge case scenarios.</p>
+    <h1>Leadership & Team Management — QA Onboarding</h1>
+    <p>This section outlines an onboarding plan for a new QA specialist and a sample feedback memo after their first QA task.</p>
 
-    <h2>Test Case 1 – Functional Test: Image Upload Validation</h2>
-    <p><strong>Objective:</strong> Verify that the plugin correctly validates image dimensions (minimum 500x500 px).</p>
-    <p><strong>Preconditions:</strong></p>
-    <ul>
-      <li>User has access to the WordPress admin panel.</li>
-      <li>Plugin is installed and activated.</li>
-    </ul>
-    <p><strong>Steps:</strong></p>
-    <ol>
-      <li>Go to <em>Before & After Gallery → Add New Case</em>.</li>
-      <li>Try uploading an image smaller than 500x500 px (e.g., 400x400).</li>
-      <li>Observe the error or validation message.</li>
-      <li>Upload an image with correct dimensions (e.g., 800x800).</li>
-      <li>Save the case.</li>
-    </ol>
-    <p><strong>Expected Results:</strong></p>
-    <ul>
-      <li>Step 2: Upload fails with message “Image must be at least 500x500 pixels.”</li>
-      <li>Step 5: Upload succeeds, image is saved and displayed correctly.</li>
-    </ul>
-    <p><strong>Type:</strong> Functional<br>
-       <strong>Priority:</strong> High<br>
-       <strong>Status:</strong> Pass/Fail</p>
+    <h2>1. Onboarding Plan for New QA Specialist</h2>
+    <p><strong>Objective:</strong> Help the new QA specialist gain foundational knowledge in WordPress QA, testing best practices, and reporting standards.</p>
 
-    <h2>Test Case 2 – Performance Test: Gallery Load Speed</h2>
-    <p><strong>Objective:</strong> Ensure that gallery pages load efficiently when displaying multiple before/after cases.</p>
-    <p><strong>Preconditions:</strong></p>
+    <h3>Key Learning Objectives</h3>
     <ul>
-      <li>Plugin is configured with at least 20 before/after cases.</li>
-      <li>Caching enabled (if available).</li>
+      <li>Understand the WordPress environment: themes, plugins, posts, pages, and users.</li>
+      <li>Learn QA processes: test case creation, execution, bug reporting, and regression testing.</li>
+      <li>Gain familiarity with QA tools: Chrome DevTools, BrowserStack, Lighthouse, Axe, Screaming Frog, WP-CLI.</li>
+      <li>Understand performance, accessibility (WCAG 2.1 AA), SEO, and cross-browser testing principles.</li>
+      <li>Learn how to document issues clearly and communicate effectively with developers.</li>
+      <li>Familiarize with QA reporting templates and tracking in Jira/GitHub/Trello.</li>
     </ul>
-    <p><strong>Steps:</strong></p>
-    <ol>
-      <li>Open the gallery page on the front end.</li>
-      <li>Measure page load time using Lighthouse or GTmetrix.</li>
-      <li>Compare load time against acceptable threshold (≤3 seconds).</li>
-    </ol>
-    <p><strong>Expected Results:</strong></p>
-    <ul>
-      <li>Page loads within 3 seconds on standard broadband.</li>
-      <li>No console or network errors.</li>
-      <li>Smooth image transitions or sliders with no lag.</li>
-    </ul>
-    <p><strong>Type:</strong> Performance<br>
-       <strong>Priority:</strong> Medium<br>
-       <strong>Status:</strong> Pass/Fail</p>
 
-    <h2>Test Case 3 – Edge Case: Category Ordering Logic</h2>
-    <p><strong>Objective:</strong> Validate that cases display correctly when assigned to both primary and secondary categories.</p>
-    <p><strong>Preconditions:</strong></p>
+    <h3>Suggested Resources</h3>
     <ul>
-      <li>At least 3 cases exist.</li>
-      <li>Each case has a primary and secondary category.</li>
+      <li>WordPress Codex & Developer Handbook: <a href="https://developer.wordpress.org/" target="_blank">https://developer.wordpress.org/</a></li>
+      <li>QA Process Documentation (internal)</li>
+      <li>Accessibility basics: <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference</a></li>
+      <li>SEO best practices: <a href="https://moz.com/beginners-guide-to-seo" target="_blank">Moz Beginner's Guide to SEO</a></li>
+      <li>BrowserStack / Sauce Labs tutorials for cross-browser testing</li>
+      <li>Hands-on exercises: execute test cases on staging WordPress site</li>
     </ul>
-    <p><strong>Steps:</strong></p>
+
+    <h3>Onboarding Steps</h3>
     <ol>
-      <li>Assign Case A as primary category “Skincare”, secondary “Face”.</li>
-      <li>Assign Case B as primary “Skincare”, secondary “Body”.</li>
-      <li>Reorder cases under “Skincare”.</li>
-      <li>Open the “Face” and “Body” galleries.</li>
+      <li>Orientation: Overview of QA process, tools, and team expectations.</li>
+      <li>Hands-on Training: Guided testing on a staging WordPress site, including functional, responsive, and accessibility checks.</li>
+      <li>Shadowing: Observe experienced QA members execute test cases and report bugs.</li>
+      <li>Independent Task: Run a small QA task (e.g., check blog posts for content accuracy, alt tags, and links).</li>
+      <li>Review: Submit test results for review and feedback.</li>
     </ol>
-    <p><strong>Expected Results:</strong></p>
+
+    <h2>2. Sample Feedback Memo — After First QA Task</h2>
+    <p><strong>To:</strong> [New QA Specialist]</p>
+    <p><strong>From:</strong> QA Lead</p>
+    <p><strong>Date:</strong> 2025-10-25</p>
+    <p><strong>Subject:</strong> Feedback on First QA Task</p>
+
+    <h3>Feedback Summary</h3>
     <ul>
-      <li>Case order in secondary categories reflects the same order set in the primary category.</li>
-      <li>No duplication or missing cases.</li>
+      <li><strong>Strengths:</strong>
+        <ul>
+          <li>Quickly understood test instructions and executed functional checks accurately.</li>
+          <li>Documented observed issues with clear screenshots.</li>
+          <li>Asked clarifying questions when unsure, showing initiative.</li>
+        </ul>
+      </li>
+      <li><strong>Areas for Improvement:</strong>
+        <ul>
+          <li>Needs to improve familiarity with WordPress admin interface for faster navigation.</li>
+          <li>Accessibility checks (keyboard navigation & color contrast) were partially executed; suggest using Axe or WAVE consistently.</li>
+          <li>SEO checks need more attention — ensure meta titles and alt text are verified for all posts.</li>
+        </ul>
+      </li>
+      <li><strong>Next Steps:</strong>
+        <ul>
+          <li>Complete a mini-task focused on accessibility verification of 5 pages.</li>
+          <li>Review the internal QA guide on SEO best practices.</li>
+          <li>Schedule a follow-up session to discuss progress and address questions.</li>
+        </ul>
+      </li>
     </ul>
-    <p><strong>Type:</strong> Edge Case / Functional<br>
-       <strong>Priority:</strong> High<br>
-       <strong>Status:</strong> Pass/Fail</p>
+
+    <p>Overall, the first task shows good attention to detail and willingness to learn. With focused practice on accessibility and SEO checks, you will become an effective QA team member quickly.</p>
 
     <p><a href="index.html">← Back to QA Process</a></p>
-  </div>
-    <footer>
+  </div>    <footer>
       <div>QA Process</div>
     </footer>
 
