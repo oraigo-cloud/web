@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DataSphere Academy - Training Agreement</title>
+  <style>
+    :root{
+      --brand:#0d6efd;
+      --muted:#6c757d;
+      --bg:#f8f9fa;
+      --card:#ffffff;
+      --shadow: 0 6px 18px rgba(16,24,40,0.06);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{background:var(--bg); margin:0; padding:32px; color:#111827;}
+    .container{max-width:920px; margin:0 auto;}
+    .card{background:var(--card); border-radius:12px; box-shadow:var(--shadow); padding:24px;}
+    h1{margin:0 0 6px; color:var(--brand);}
+    p.lead{color:var(--muted); margin-top:6px;}
+    .agreement-box{height:360px; overflow:auto; border:1px solid #e9ecef; padding:18px; border-radius:8px; background:#fff;}
+    .form-row{display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;}
+    label{display:block; font-weight:600; margin-bottom:6px; font-size:14px;}
+    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid #e6e9ee; font-size:14px;
+    }
+    .col{flex:1 1 240px; min-width:220px;}
+    .full{flex:1 1 100%;}
+    .small{width:160px;}
+    .btn{display:inline-block; padding:10px 16px; border-radius:10px; background:var(--brand); color:white; text-decoration:none; border:none; cursor:pointer;}
+    .btn.secondary{background:#6c757d;}
+    .muted{color:var(--muted); font-size:13px;}
+    .note{font-size:13px; color:#374151; margin-top:8px;}
+    .flex-between{display:flex; justify-content:space-between; align-items:center; gap:12px;}
+    .hidden{display:none;}
+    .success{padding:18px; border-radius:8px; background:#ecfdf5; color:#065f46; margin-top:14px; border:1px solid #bbf7d0;}
+    footer{margin-top:18px; color:var(--muted); font-size:13px;}
+    @media(max-width:600px){ .form-row{flex-direction:column;} .small{width:100%} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Training Agreement — Data Quality Analyst Program</h1>
+      <p class="lead">DataSphere Academy, Sushil Nagar Orai 285001</p>
+
+      <hr style="margin:16px 0; border:none; border-top:1px solid #eef2f7;">
+
+      <div class="form-row">
+        <div class="col">
+          <label for="candidateName">Full Name</label>
+          <input id="candidateName" type="text" placeholder="Your full name" required>
+        </div>
+        <div class="col">
+          <label for="candidateEmail">Email</label>
+          <input id="candidateEmail" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="small">
+          <label for="candidatePhone">Phone</label>
+          <input id="candidatePhone" type="tel" placeholder="+91 9XXXXXXXXX" required>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;" class="agreement-box" id="agreementText" aria-label="Agreement text">
+        <h3 style="margin-top:0;">Training Enrollment & Service Agreement</h3>
+        <p class="muted"><strong>Between:</strong> DataSphere Academy, Sushil Nagar Orai 285001 ("Provider") and the undersigned applicant ("Participant").</p>
+
+        <h4>1. Program</h4>
+        <p>This agreement covers enrollment in the <strong>Data Quality Analyst – Training-to-Hire Program</strong> ("Program"), a 6-week training program that includes instruction, project work, mentorship, and evaluation leading to potential employment opportunities with DataSphere Academy or partner clients.</p>
+
+        <h4>2. Fee & Payment</h4>
+        <p>The Program fee is <strong>₹9,500</strong> (Indian Rupees Nine Thousand Five Hundred). Payment is required to confirm and secure a seat. Payment link will be provided after submission of this form. Fees are payable to DataSphere Academy (bank / payment provider details provided separately).</p>
+
+        <h4>3. Refund & Cancellation Policy</h4>
+        <p>Requests for cancellation and refund must be made in writing to <em>dsa.ebts@gmail.com</em>. If cancellation is requested prior to the Program start date, a refund may be issued minus a processing charge of ₹[INSERT AMOUNT]. No refunds are provided after the Program start date except at the Provider's discretion.</p>
+
+        <h4>4. Training, Evaluation & Hiring</h4>
+        <p>Completion of the Program and placement on hiring shortlists are subject to satisfactory performance during training and the final project. The Program does not guarantee employment; however, top performers will be considered for roles and/or recommended to partner clients.</p>
+
+        <h4>5. Participant Obligations</h4>
+        <ul>
+          <li>Attend sessions punctually, complete assignments, and participate in project work.</li>
+          <li>Provide accurate identification and contact details.</li>
+          <li>Comply with DataSphere Academy's code of conduct and policies.</li>
+        </ul>
+
+        <h4>6. Intellectual Property & Assignments</h4>
+        <p>Work produced specifically for a client or for DataSphere Academy during the Program may be assigned to the relevant party. Participant retains ownership of personal learning artifacts unless otherwise agreed in writing.</p>
+
+        <h4>7. Confidentiality</h4>
+        <p>Participants must not disclose confidential information provided during the Program, including client data, proprietary materials, or assessment details.</p>
+
+        <h4>8. Data Protection</h4>
+        <p>Provider will process Participant personal data for Program delivery, assessment, and placement. By signing, Participant consents to such processing and to sharing limited placement-related information with partner clients.</p>
+
+        <h4>9. Limitation of Liability</h4>
+        <p>To the maximum extent permitted by law, Provider's liability is limited to the refund of fees paid. Provider is not liable for indirect or consequential losses.</p>
+
+        <h4>10. Termination</h4>
+        <p>Provider may terminate Participant enrollment for breach of terms, misconduct, or failure to meet Program requirements. In such cases, refund decisions are at Provider's discretion.</p>
+
+        <h4>11. Governing Law & Dispute Resolution</h4>
+        <p>This Agreement is governed by Indian law. Any dispute shall be subject to the exclusive jurisdiction of courts in <strong>Orai, Uttar Pradesh, India</strong>.</p>
+
+        <p class="muted"><strong>Declaration:</strong> I confirm that the information provided in my application is true and that I have read, understood, and agree to the terms above. I understand that signing this agreement constitutes a digital/electronic signature that is legally binding as an intent to sign.</p>
+      </div>
+
+      <!-- Signature fields -->
+      <div class="form-row" style="margin-top:14px;">
+        <div class="col full">
+          <label for="signatureName">Type your full name (Electronic Signature)</label>
+          <input id="signatureName" type="text" placeholder="Type full name to sign" required>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:8px; align-items:center;">
+        <div style="display:flex; gap:12px; align-items:center;">
+          <input id="agreeCheck" type="checkbox" required>
+          <label for="agreeCheck" style="font-weight:600; margin:0;">I have read and agree to the terms of this Training Agreement.</label>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:14px; justify-content:flex-end;">
+        <button id="printBtn" class="btn secondary" type="button">Print / Save PDF</button>
+        <button id="submitBtn" class="btn" type="button">Sign & Proceed to Payment</button>
+      </div>
+
+      <div id="result" class="hidden"></div>
+
+      <footer>
+        <p class="muted">DataSphere Academy — Sushil Nagar Orai 285001 • Email: dsa.ebts@gmail.com</p>
+        <p class="note"><strong>Disclaimer:</strong> This template is provided for convenience and does not constitute legal advice. Please have your legal counsel review the agreement for compliance with applicable law and consumer protection rules.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Replace this with your real payment URL
+    const PAYMENT_URL = "[PAYMENT_URL]";
+
+    const submitBtn = document.getElementById('submitBtn');
+    const printBtn = document.getElementById('printBtn');
+    const nameInput = document.getElementById('candidateName');
+    const emailInput = document.getElementById('candidateEmail');
+    const phoneInput = document.getElementById('candidatePhone');
+    const signInput = document.getElementById('signatureName');
+    const agreeCheck = document.getElementById('agreeCheck');
+    const result = document.getElementById('result');
+
+    function showMessage(html) {
+      result.innerHTML = html;
+      result.className = '';
+      result.scrollIntoView({behavior:'smooth'});
+    }
+
+    printBtn.addEventListener('click', () => {
+      // Print only the agreement portion with signature (open a new window)
+      const agreementHTML = `
+        <html><head><title>Agreement - ${nameInput.value || 'Participant'}</title>
+        <style>body{font-family:Arial,Helvetica,sans-serif;padding:20px;color:#111} h1{color:#0d6efd}</style>
+        </head><body>
+        <h1>DataSphere Academy - Training Agreement</h1>
+        <p><strong>Participant:</strong> ${nameInput.value || ''} • ${emailInput.value || ''} • ${phoneInput.value || ''}</p>
+        ${document.getElementById('agreementText').innerHTML}
+        <p><strong>Signed (electronic):</strong> ${signInput.value || ''}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        </body></html>`;
+      const w = window.open('', '_blank');
+      w.document.write(agreementHTML);
+      w.document.close();
+      w.print();
+    });
+
+    submitBtn.addEventListener('click', () => {
+      // Basic validation
+      if (!nameInput.value.trim()) { alert('Please enter your full name.'); nameInput.focus(); return; }
+      if (!emailInput.value.trim()) { alert('Please enter your email.'); emailInput.focus(); return; }
+      if (!phoneInput.value.trim()) { alert('Please enter your phone number.'); phoneInput.focus(); return; }
+      if (!signInput.value.trim()) { alert('Please type your full name to sign.'); signInput.focus(); return; }
+      if (!agreeCheck.checked) { alert('You must agree to the terms to proceed.'); agreeCheck.focus(); return; }
+
+      // Prepare signed data (in a real implementation you would POST to your server)
+      const signedData = {
+        participantName: nameInput.value.trim(),
+        participantEmail: emailInput.value.trim(),
+        participantPhone: phoneInput.value.trim(),
+        electronicSignature: signInput.value.trim(),
+        agreedAt: new Date().toISOString(),
+        agreementVersion: '1.0'
+      };
+
+      // For this template we show a confirmation and open payment link
+      const confirmationHtml = `
+        <div class="success">
+          <strong>Agreement signed successfully.</strong>
+          <p>Thank you, <strong>${signedData.participantName}</strong>. Your electronic signature and agreement have been recorded.</p>
+          <p>Please complete the program fee payment of <strong>₹9,500</strong> to confirm your seat.</p>
+          <p>
+            <a id="payNow" class="btn" href="${PAYMENT_URL}" target="_blank" rel="noopener">Pay ₹9,500 Now</a>
+            <button id="paidBtn" class="btn secondary" style="margin-left:10px;">I have paid</button>
+          </p>
+          <p class="muted">After payment is confirmed, you will receive an official enrollment email with onboarding details.</p>
+        </div>`;
+
+      showMessage(confirmationHtml);
+
+      // In production: send 'signedData' to your server via fetch() to store the agreement and trigger email/receipt.
+      // Example:
+      // fetch('/api/save-agreement', { method: 'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(signedData) });
+
+      // Optional: attach handler for "I have paid" to let applicant confirm offline payment
+      document.getElementById('paidBtn').addEventListener('click', () => {
+        alert('Thanks — we will verify your payment and email you the enrollment confirmation within 1-2 business days.');
+      });
+    });
+  </script>
+</body>
+</html>
