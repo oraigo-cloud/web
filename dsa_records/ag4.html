@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DataSphere Trainee Agreement Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 25px;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #004aad;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #00347a;
+    }
+    .note {
+      background: #eef5ff;
+      padding: 10px;
+      border-left: 4px solid #004aad;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>DataSphere Academy – Trainee Agreement</h2>
+    <p><strong>Address:</strong> Sushil Nagar, Orai 285001</p>
+
+    <div class="note">
+      <p>ℹ️ <strong>Note:</strong> More details about this program are available at:<br>
+      <a href="https://web.planetdigit.com/datasphere/careers.html" target="_blank">
+        https://web.planetdigit.com/datasphere/careers.html
+      </a></p>
+    </div>
+
+    <form id="agreementForm">
+      <label>Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Email Address:</label>
+      <input type="email" id="email" required>
+
+      <label>Phone Number:</label>
+      <input type="text" id="phone" required>
+
+      <label>Program Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <label>Program Mode:</label>
+      <select id="mode" required>
+        <option value="">-- Select Mode --</option>
+        <option value="Training + Internship (Paid Training Mode)">Mode 1: Training + Internship (Paid Training Mode)</option>
+        <option value="Direct Internship (No Training Fee)">Mode 2: Direct Internship (No Training Fee)</option>
+      </select>
+
+      <label>Signature (type your full name):</label>
+      <input type="text" id="signature" required>
+
+      <button type="button" onclick="generateHTML()">Download Agreement</button>
+    </form>
+  </div>
+
+  <script>
+    function generateHTML() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const startDate = document.getElementById("startDate").value;
+      const mode = document.getElementById("mode").value;
+      const signature = document.getElementById("signature").value;
+
+      const today = new Date().toLocaleDateString();
+
+      let modeDetails = "";
+      if (mode.includes("Paid")) {
+        modeDetails = `
+          <li>The trainee is enrolling under <strong>Mode 1: Training + Internship (Paid Training Mode)</strong>.</li>
+          <li>The trainee agrees to pay a training fee of ₹9,500 covering training, project evaluation, and certification.</li>
+          <li>Internship opportunities will be provided upon successful completion of the training phase.</li>
+        `;
+      } else if (mode.includes("Direct")) {
+        modeDetails = `
+          <li>The trainee is enrolling under <strong>Mode 2: Direct Internship (No Training Fee)</strong>.</li>
+          <li>The trainee will participate directly in internship assignments without a training fee.</li>
+        `;
+      }
+
+      const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DataSphere Trainee Agreement - ${name}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; }
+    h1 { color: #004aad; text-align: center; }
+    .section { margin-bottom: 25px; }
+    .footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
+    .details p { margin: 4px 0; }
+    .signature { margin-top: 60px; }
+    .sign-line { border-bottom: 1px solid #000; width: 250px; margin-top: 40px; }
+    a { color: #004aad; }
+  </style>
+</head>
+<body>
+  <h1>DataSphere Academy</h1>
+  <p style="text-align:center;"><strong>Address:</strong> Sushil Nagar, Orai 285001</p>
+
+  <div class="section">
+    <h2>Training-to-Hire Agreement</h2>
+    <div class="details">
+      <p><strong>Candidate Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Program Start Date:</strong> ${startDate}</p>
+      <p><strong>Selected Mode:</strong> ${mode}</p>
+      <p><strong>Program Duration:</strong> 6 Weeks</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Terms & Conditions</h3>
+    <ul>
+      ${modeDetails}
+      <li>The trainee agrees to participate actively and maintain professional conduct throughout the program.</li>
+      <li>A certificate of completion will be issued after successful project evaluation.</li>
+      <li>Top performers may be offered opportunities with DataSphere Academy or partner organizations.</li>
+      <li>The trainee confirms that all information provided is accurate and truthful.</li>
+      <li>More program details are available at:
+        <a href="https://web.planetdigit.com/datasphere/careers.html" target="_blank">
+          https://web.planetdigit.com/datasphere/careers.html
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="signature">
+    <p><strong>Signed by Trainee:</strong></p>
+    <div class="sign-line"></div>
+    <p>${signature}</p>
+    <p><strong>Date:</strong> ${today}</p>
+
+    <p style="margin-top:40px;"><strong>For DataSphere Academy</strong></p>
+    <div class="sign-line"></div>
+    <p>Authorized Signatory</p>
+  </div>
+
+  <div class="footer">
+    <p>© ${new Date().getFullYear()} DataSphere Academy | All Rights Reserved</p>
+  </div>
+</body>
+</html>`;
+
+      const blob = new Blob([htmlContent], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `DataSphere_Agreement_${name.replace(/\s+/g, '_')}.html`;
+      link.click();
+    }
+  </script>
+</body>
+</html>
