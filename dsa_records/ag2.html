@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DataSphere Trainee Agreement</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
+    .container { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin-top: 15px; background-color: #004aad; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Data Quality Analyst – Training-to-Hire Agreement</h2>
+    <p><strong>DataSphere Academy, Sushil Nagar, Orai 285001</strong></p>
+
+    <form id="agreementForm">
+      <label>Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Email:</label>
+      <input type="email" id="email" required>
+
+      <label>Phone:</label>
+      <input type="text" id="phone" required>
+
+      <label>Program Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <label>Signature (type your full name):</label>
+      <input type="text" id="signature" required>
+
+      <button type="button" onclick="generatePDF()">Generate Agreement PDF</button>
+    </form>
+  </div>
+
+  <script>
+    async function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const startDate = document.getElementById("startDate").value;
+      const signature = document.getElementById("signature").value;
+
+      doc.setFontSize(14);
+      doc.text("DataSphere Academy", 20, 20);
+      doc.setFontSize(11);
+      doc.text("Training-to-Hire Agreement", 20, 30);
+      doc.text("Address: Sushil Nagar, Orai 285001", 20, 40);
+
+      doc.text(`Name: ${name}`, 20, 60);
+      doc.text(`Email: ${email}`, 20, 70);
+      doc.text(`Phone: ${phone}`, 20, 80);
+      doc.text(`Program Start Date: ${startDate}`, 20, 90);
+
+      doc.text("Training Fee: ₹9,500", 20, 110);
+      doc.text("Program Duration: 6 Weeks", 20, 120);
+
+      doc.text("Terms & Conditions:", 20, 140);
+      doc.text("- Candidate agrees to complete full training duration.", 25, 150);
+      doc.text("- Fee is non-refundable once enrolled.", 25, 160);
+      doc.text("- Completion certificate issued post-project evaluation.", 25, 170);
+      doc.text("- Top performers may be considered for hiring.", 25, 180);
+
+      doc.text(`Signed by: ${signature}`, 20, 200);
+      doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 210);
+
+      doc.save(`DataSphere_Agreement_${name}.pdf`);
+    }
+  </script>
+</body>
+</html>
