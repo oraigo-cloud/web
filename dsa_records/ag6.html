@@ -129,8 +129,19 @@
     .section { margin-bottom: 25px; }
     .footer { text-align: center; margin-top: 40px; font-size: 14px; color: #777; }
     .details p { margin: 4px 0; }
-    .signature { margin-top: 60px; }
-    .sign-line { border-bottom: 1px solid #000; width: 250px; margin-top: 40px; }
+    .signatures {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+    .sign-block {
+      width: 45%;
+    }
+    .sign-line {
+      border-bottom: 1px solid #000;
+      width: 100%;
+      margin-top: 40px;
+    }
     a { color: #004aad; }
     .digital-note { font-size: 13px; color: #777; margin-top: 5px; }
   </style>
@@ -167,17 +178,20 @@
     </ul>
   </div>
 
-  <div class="signature">
-    <p><strong>Signed by Trainee:</strong></p>
-    
-    <p>${signature}</p>
-    <p><strong>Date:</strong> ${today}</p>
-    <div class="sign-line"></div>
+  <div class="signatures">
+    <div class="sign-block">
+      <p><strong>Signed by Trainee:</strong></p>
+      <p>${signature}</p>
+      <p><strong>Date:</strong> ${today}</p>
+      <div class="sign-line"></div>
+    </div>
 
-    <p style="margin-top:40px;"><strong>DataSphere Academy</strong></p>
-    <p>Authorized Signatory</p>
-    <p class="digital-note">(Digitally Verified – No Physical Signature Required for Online Agreement)</p>
-    <div class="sign-line"></div>
+    <div class="sign-block" style="text-align:right;">
+      <p><strong>DataSphere Academy</strong></p>
+      <p>Authorized Signatory</p>
+      <p class="digital-note">(Digitally Verified – No Physical Signature Required for Online Agreement)</p>
+      <div class="sign-line"></div>
+    </div>
   </div>
 
   <div class="footer">
