@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DataSphere Academy — Candidate Verification Form</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      max-width: 760px;
+      margin: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    h2 {
+      color: #004aad;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    p.center {
+      text-align: center;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 4px;
+    }
+    input[type=file] {
+      border: none;
+    }
+    button {
+      background: #004aad;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 18px;
+    }
+    button:hover {
+      background: #003580;
+    }
+    #previewSection {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    #previewSection img {
+      max-width: 180px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>DataSphere Academy</h2>
+    <p class="center">Candidate Verification & Bank Details Form</p>
+
+    <form id="verificationForm">
+      <h3>Personal Information</h3>
+      <label>Full Name:</label>
+      <input type="text" id="name" required>
+
+      <label>Email Address:</label>
+      <input type="email" id="email" required>
+
+      <label>Phone Number:</label>
+      <input type="text" id="phone" required>
+
+      <label>Program Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <h3>Bank Account Details</h3>
+      <label>Account Holder Name:</label>
+      <input type="text" id="accountName" required>
+
+      <label>Bank Name:</label>
+      <input type="text" id="bankName" required>
+
+      <label>Account Number:</label>
+      <input type="text" id="accountNumber" required>
+
+      <label>IFSC Code:</label>
+      <input type="text" id="ifsc" required>
+
+      <h3>Government ID Verification</h3>
+      <label>Aadhaar Number:</label>
+      <input type="text" id="aadhaarNumber" maxlength="12" required>
+
+      <label>Upload Aadhaar Front:</label>
+      <input type="file" id="aadhaarFront" accept="image/*" required>
+
+      <label>Upload Aadhaar Back:</label>
+      <input type="file" id="aadhaarBack" accept="image/*" required>
+
+      <label>PAN Number:</label>
+      <input type="text" id="panNumber" maxlength="10" required>
+
+      <label>Upload PAN Front:</label>
+      <input type="file" id="panFront" accept="image/*" required>
+
+      <label>Upload PAN Back:</label>
+      <input type="file" id="panBack" accept="image/*" required>
+
+      <button type="button" onclick="generateDocs()">Submit & Download</button>
+    </form>
+
+    <div id="previewSection">
+      <div id="previewContent"></div>
+    </div>
+  </div>
+
+  <script>
+    async function generateDocs() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const startDate = document.getElementById("startDate").value;
+      const accountName = document.getElementById("accountName").value;
+      const bankName = document.getElementById("bankName").value;
+      const accountNumber = document.getElementById("accountNumber").value;
+      const ifsc = document.getElementById("ifsc").value;
+      const aadhaarNumber = document.getElementById("aadhaarNumber").value;
+      const panNumber = document.getElementById("panNumber").value;
+
+      const files = {
+        aadhaarFront: document.getElementById("aadhaarFront").files[0],
+        aadhaarBack: document.getElementById("aadhaarBack").files[0],
+        panFront: document.getElementById("panFront").files[0],
+        panBack: document.getElementById("panBack").files[0]
+      };
+
+      // Check file presence
+      for (const [key, file] of Object.entries(files)) {
+        if (!file) {
+          alert(`Please upload ${key.replace(/([A-Z])/g, ' $1')} image.`);
+          return;
+        }
+      }
+
+      // Convert all images to base64
+      const convertToBase64 = (file) => new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(file);
+      });
+
+      const aadhaarFrontBase64 = await convertToBase64(files.aadhaarFront);
+      const aadhaarBackBase64 = await convertToBase64(files.aadhaarBack);
+      const panFrontBase64 = await convertToBase64(files.panFront);
+      const panBackBase64 = await convertToBase64(files.panBack);
+      const today = new Date().toLocaleDateString();
+
+      const htmlContent = `
+      <div id="pdfContent" style="font-family:Arial,sans-serif;color:#333;font-size:13px;line-height:1.4;">
+        <h2 style="color:#004aad;text-align:center;">DataSphere Academy</h2>
+        <p style="text-align:center;">Candidate Verification & Bank Details Document</p>
+        <p><strong>Date:</strong> ${today}</p>
+        <hr>
+        <h3>Personal Information</h3>
+        <p><strong>Full Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Program Start Date:</strong> ${startDate}</p>
+
+        <h3>Bank Details</h3>
+        <p><strong>Account Holder:</strong> ${accountName}</p>
+        <p><strong>Bank Name:</strong> ${bankName}</p>
+        <p><strong>Account Number:</strong> ${accountNumber}</p>
+        <p><strong>IFSC Code:</strong> ${ifsc}</p>
+
+        <h3>Aadhaar Details</h3>
+        <p><strong>Aadhaar Number:</strong> ${aadhaarNumber}</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <div><p>Front:</p><img src="${aadhaarFrontBase64}" style="max-width:180px;border:1px solid #ccc;border-radius:8px;"></div>
+          <div><p>Back:</p><img src="${aadhaarBackBase64}" style="max-width:180px;border:1px solid #ccc;border-radius:8px;"></div>
+        </div>
+
+        <h3>PAN Details</h3>
+        <p><strong>PAN Number:</strong> ${panNumber}</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <div><p>Front:</p><img src="${panFrontBase64}" style="max-width:180px;border:1px solid #ccc;border-radius:8px;"></div>
+          <div><p>Back:</p><img src="${panBackBase64}" style="max-width:180px;border:1px solid #ccc;border-radius:8px;"></div>
+        </div>
+
+        <hr>
+        <p style="font-size:12px;color:#777;text-align:center;margin-top:20px;">© ${new Date().getFullYear()} DataSphere Academy | Candidate Verification Document</p>
+      </div>`;
+
+      document.getElementById("previewSection").style.display = "block";
+      document.getElementById("previewContent").innerHTML = htmlContent;
+
+      // Download HTML
+      const blob = new Blob([htmlContent], { type: "text/html" });
+      const htmlLink = document.createElement("a");
+      htmlLink.href = URL.createObjectURL(blob);
+      htmlLink.download = `Candidate_Verification_${name.replace(/\s+/g,'_')}.html`;
+      htmlLink.click();
+
+      // Generate PDF
+      const pdfElement = document.getElementById("pdfContent");
+      html2pdf().from(pdfElement).set({
+        margin: 10,
+        filename: `Candidate_Verification_${name.replace(/\s+/g,'_')}.pdf`,
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+      }).save();
+    }
+  </script>
+</body>
+</html>
