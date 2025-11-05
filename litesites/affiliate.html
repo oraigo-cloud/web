@@ -221,6 +221,46 @@
       }
     }
   });
+
+  // --- Auto-select plan from URL parameter if present (optional) ---
+    const planParam = params.get("plan");
+    if (planParam) {
+      const form = document.getElementById("affiliateSignupForm");
+      if (form) {
+        let planInput = document.getElementById("plan");
+        if (!planInput) {
+          planInput = document.createElement("input");
+          planInput.type = "hidden";
+          planInput.name = "plan";
+          planInput.id = "plan";
+          form.appendChild(planInput);
+        }
+        planInput.value = planParam;
+      }
+    }
+  });
+
+  // --- Handle plan selection from buttons ---
+  function selectPlan(planName) {
+    const form = document.getElementById("affiliateSignupForm");
+    if (form) {
+      // Add or update hidden input for plan
+      let planInput = document.getElementById("plan");
+      if (!planInput) {
+        planInput = document.createElement("input");
+        planInput.type = "hidden";
+        planInput.name = "plan";
+        planInput.id = "plan";
+        form.appendChild(planInput);
+      }
+      planInput.value = planName;
+
+      // Smooth scroll to signup form
+      form.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  
 </script>
 
 
