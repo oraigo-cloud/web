@@ -3,20 +3,14 @@ document.getElementById("affiliateSignupForm").addEventListener("submit", async 
 
   const form = e.target;
 
-  // Show countdown popup
+  // Show popup (no timer)
   const popup = document.getElementById('affiliatePopup');
-  const timerEl = document.getElementById('affiliateTimer');
   popup.style.display = 'block';
-  let count = 5;
 
-  const interval = setInterval(() => {
-    timerEl.textContent = count;
-    count--;
-    if (count < 0) {
-      clearInterval(interval);
-      popup.style.display = 'none';
-    }
-  }, 1000);
+  // Automatically hide popup after 4 seconds
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 4000);
 
   // Collect form data
   const formData = new FormData();
