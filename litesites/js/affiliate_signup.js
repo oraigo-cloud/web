@@ -50,11 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (text.includes("✅ Success")) {
-          alert("✅ Your affiliate signup was submitted successfully!");
+          // alert("✅ Your affiliate signup was submitted successfully!");
           const selectedPlan = form.plan.value.trim().toLowerCase();
 
           // Redirect if plan is "premium"
           if (selectedPlan === "premium") {
+            alert("✅ Your affiliate signup was submitted successfully!");
             window.location.href = "https://payments.cashfree.com/forms/litesites_premium";
           } else {
             form.reset();
