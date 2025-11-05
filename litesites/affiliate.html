@@ -171,14 +171,18 @@
 
   <textarea name="message" id="message" rows="5" placeholder="Tell us how you plan to promote LiteSites" required></textarea>
 
+  <!-- Display selected plan (auto-filled by script) -->
+  <input type="text" name="planDisplay" id="planDisplay" placeholder="Selected Plan" readonly style="background-color:#f9fafb; font-weight:500;">
 
-  <!--<input type="text" name="refid" id="refid" placeholder="Referral ID" required>-->
+  <!-- Hidden plan input (used for form submission) -->
+  <input type="hidden" name="plan" id="plan">
 
+  <!-- Referral ID (auto-filled by URL or referrer) -->
   <input type="text" name="refid" id="refid" placeholder="Referral ID" readonly required>
-
 
   <button type="submit">Submit</button>
 </form>
+
 
 </section>
 
