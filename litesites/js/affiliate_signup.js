@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const selectedPlan = form.plan.value.trim().toLowerCase();
 
           // Redirect if plan is "premium"
-          if (selectedPlan === "premium") {
+          if (selectedPlan === "Premium Affiliate") {
             alert("✅ Your affiliate signup was submitted successfully!");
             window.location.href = "https://payments.cashfree.com/forms/litesites_premium";
           } else {
