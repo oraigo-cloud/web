@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("UPI ID", form.upi.value);
     formData.append("Message", form.message.value);
     formData.append("Referral ID", form.refid.value);
+    formData.append("Plan", form.plan.value);
 
     // Simulate 5-second delay before submission
     setTimeout(async () => {
