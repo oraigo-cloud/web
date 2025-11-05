@@ -14,112 +14,97 @@
   <link href="css/style.css" rel="stylesheet">
   
 </head>
-<body>
-
-<!-- Hero Section -->
-<section class="hero">
-  <div class="container text-center">
-    <h1>Become a LiteSites Affiliate Partner</h1>
-    <p>Earn recurring income by sharing the power of LiteSites with your network.</p>
-    <a href="#signup" class="btn btn-light btn-lg text-primary fw-bold">Join Now</a>
-  </div>
-</section>
+<body><!-- Hero Section -->
+<header>
+  <h1>Become a LiteSites Affiliate Partner</h1>
+  <p>Earn recurring income by sharing the power of LiteSites with your network.</p>
+  <a href="#signup">
+    <button class="cta-button">Join Now</button>
+  </a>
+</header>
 
 <!-- Benefits Section -->
 <section id="benefits">
-  <div class="container text-center">
-    <h2 class="mb-5">Why Join Our Affiliate Program?</h2>
-    <div class="benefits d-flex flex-wrap justify-content-center gap-4">
-      <div class="benefit bg-white p-4 rounded-3 shadow-sm" style="max-width:280px;">
-        <h3>Earn by Sharing</h3>
-        <p>Earn commissions for every client you refer who signs up for LiteSites.</p>
-      </div>
-      <div class="benefit bg-white p-4 rounded-3 shadow-sm" style="max-width:280px;">
-        <h3>Your Own Link</h3>
-        <p>Get a unique referral link to share across social media and email.</p>
-      </div>
-      <div class="benefit bg-white p-4 rounded-3 shadow-sm" style="max-width:280px;">
-        <h3>Transparent Payments</h3>
-        <p>Receive monthly payouts directly to your account with full reporting.</p>
-      </div>
+  <h2>Why Join Our Affiliate Program?</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Earn by Sharing</h3>
+      <p>Earn commissions for every client you refer who signs up for LiteSites. The more you share, the more you earn.</p>
+    </div>
+    <div class="feature">
+      <h3>Your Own Link</h3>
+      <p>Get a unique referral link to promote across social media, email, or your website. Track every signup easily.</p>
+    </div>
+    <div class="feature">
+      <h3>Transparent Payments</h3>
+      <p>Receive monthly payouts directly to your account — no hidden fees, full transparency.</p>
     </div>
   </div>
 </section>
 
 <!-- Commission Examples Section -->
-<section id="commission" class="bg-light">
-  <div class="container text-center">
-    <h2 class="mb-4">Commission Examples</h2>
-    <p class="text-muted mb-5">See how much you can earn by sharing LiteSites with others!</p>
-    <div class="commission-examples bg-white p-5 rounded-4 shadow-sm">
-      <div class="commission-cards d-flex flex-wrap justify-content-center gap-4">
-        <div class="commission-card border border-primary rounded-3 p-4 bg-light" style="max-width:220px;">
-          <h4 class="text-primary">5 Referrals</h4>
-          <p>Earn ₹500/month</p>
-        </div>
-        <div class="commission-card border border-primary rounded-3 p-4 bg-light" style="max-width:220px;">
-          <h4 class="text-primary">20 Referrals</h4>
-          <p>Earn ₹2,000/month</p>
-        </div>
-        <div class="commission-card border border-primary rounded-3 p-4 bg-light" style="max-width:220px;">
-          <h4 class="text-primary">50 Referrals</h4>
-          <p>Earn ₹5,000/month</p>
-        </div>
-      </div>
+<section id="commission" style="background-color: #f9fafb;">
+  <h2>Commission Examples</h2>
+  <p style="text-align:center; color:#555; max-width:700px; margin:0 auto 2rem;">
+    Here’s how much you could earn just by referring others to LiteSites.
+  </p>
+  <div class="projects-grid">
+    <div class="project">
+      <h3>5 Referrals</h3>
+      <p>Earn ₹500/month</p>
+    </div>
+    <div class="project">
+      <h3>20 Referrals</h3>
+      <p>Earn ₹2,000/month</p>
+    </div>
+    <div class="project">
+      <h3>50 Referrals</h3>
+      <p>Earn ₹5,000/month</p>
     </div>
   </div>
 </section>
 
 <!-- Signup Form Section -->
 <section id="signup">
-  <div class="container text-center">
-    <h2 class="mb-4">Join the Affiliate Program</h2>
-    <p class="text-muted mb-5">Sign up below and start earning with LiteSites today.</p>
-
-    <form id="affiliateSignupForm" class="signup-form bg-white p-5 rounded-4 shadow-sm mx-auto" style="max-width:600px;">
-      <div class="mb-3">
-        <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Full Name" required>
-      </div>
-      <div class="mb-3">
-        <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email Address" required>
-      </div>
-      <div class="mb-3">
-        <input type="text" name="social" class="form-control form-control-lg" placeholder="Your Website or Social Media Link">
-      </div>
-      <div class="mb-3">
-        <textarea name="message" class="form-control form-control-lg" rows="5" placeholder="Tell us how you plan to promote LiteSites"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
-    </form>
-  </div>
+  <h2>Join the Affiliate Program</h2>
+  <p style="text-align:center; color:#555; max-width:600px; margin:0 auto 2rem;">
+    Fill out the form below to become a LiteSites affiliate and start earning from your referrals.
+  </p>
+  <form id="affiliateSignupForm">
+    <input type="text" name="name" id="name" placeholder="Your Full Name" required>
+    <input type="email" name="email" id="email" placeholder="Your Email Address" required>
+    <input type="text" name="social" id="social" placeholder="Your Website or Social Media Link (optional)">
+    <textarea name="message" id="message" rows="5" placeholder="Tell us how you plan to promote LiteSites" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
 </section>
 
 <!-- FAQ Section -->
-<section id="faq" class="bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Frequently Asked Questions</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="faq-item mb-4">
-          <h5 class="text-primary">How will I get paid?</h5>
-          <p>You’ll receive your commissions directly to your bank or UPI account every month.</p>
-        </div>
-        <div class="faq-item mb-4">
-          <h5 class="text-primary">How do I track my referrals?</h5>
-          <p>You’ll get access to a personalized dashboard showing clicks, signups, and commissions.</p>
-        </div>
-        <div class="faq-item mb-4">
-          <h5 class="text-primary">When do I get my commission?</h5>
-          <p>Commissions are processed and paid out at the end of each month.</p>
-        </div>
-        <div class="faq-item mb-4">
-          <h5 class="text-primary">Who can join?</h5>
-          <p>Anyone with an online presence — freelancers, marketers, or creators — can become an affiliate.</p>
-        </div>
-      </div>
+<section id="faq" style="background-color:#f9fafb;">
+  <h2>Frequently Asked Questions</h2>
+  <div style="max-width:800px; margin:0 auto;">
+    <div class="feature" style="text-align:left;">
+      <h3>How will I get paid?</h3>
+      <p>Commissions are paid monthly via bank transfer or UPI, depending on your preference.</p>
+    </div>
+    <div class="feature" style="text-align:left;">
+      <h3>How do I track my referrals?</h3>
+      <p>Each affiliate receives a personal dashboard showing clicks, signups, and commissions in real time.</p>
+    </div>
+    <div class="feature" style="text-align:left;">
+      <h3>When do I get my commission?</h3>
+      <p>Payments are processed and credited by the end of each month for confirmed referrals.</p>
+    </div>
+    <div class="feature" style="text-align:left;">
+      <h3>Who can join?</h3>
+      <p>Anyone with an audience — freelancers, influencers, marketers, or business owners — can become an affiliate.</p>
     </div>
   </div>
 </section>
+
+<footer>
+  <p>© 2025 LiteSites by PlanetDigit — Empowering Websites, Simplified.</p>
+</footer>
   <footer>
     <p>© 2025 <a href="#">LiteSites.</a> All rights reserved</a></p>
   </footer>
