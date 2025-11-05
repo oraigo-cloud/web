@@ -58,73 +58,121 @@
   window.addEventListener('resize', handleResize);
   handleResize();
 </script>
+<section id="login-section">
+  <h2>Affiliate Login</h2>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Enter your registered email" required>
+    <input type="text" id="affiliateID" placeholder="Enter your password (Affiliate ID)" required>
+    <button type="submit">Login</button>
+  </form>
+  <p id="loginMessage" style="color:red;"></p>
+</section>
 
-
-  <section id="login-section">
-    <h2>Affiliate Login</h2>
-    <form id="loginForm">
-      <input type="email" id="email" placeholder="Enter your registered email" required>
-      <input type="text" id="affiliateID" placeholder="Enter your password" required>
-      <button type="submit">Login</button>
-    </form>
-    <p id="loginMessage" style="color:red;"></p>
-  </section>
-
-  <section id="dashboard" style="display:none;">
+<section id="dashboard" style="display:none;">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
     <h2>Welcome, <span id="userName"></span>!</h2>
-    <p>Logged in with: <strong id="userEmail"></strong></p>
-    <h3>Your Total Earnings: ₹<span id="totalEarnings">0</span></h3>
+    <button id="logoutBtn" style="background:#ef4444; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer;">
+      Logout
+    </button>
+  </div>
 
-    <h4>Earnings Breakdown</h4>
-    <table border="1" cellpadding="8" style="margin-top:10px;">
-      <thead>
-        <tr><th>Month</th><th>Amount</th></tr>
-      </thead>
-      <tbody id="earningsTable"></tbody>
-    </table>
-  </section>
+  <p>Logged in with: <strong id="userEmail"></strong></p>
+  <h3>Your Total Earnings: ₹<span id="totalEarnings">0</span></h3>
 
-  <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlrClECVKJ7iTjkZGecibnVScjLJNr1wYCgMCrl29_tgi3OskOW6QmGV_nXqVE7cns/exec"; // paste your Apps Script Web App URL here
+  <h4>Earnings Breakdown</h4>
+  <table border="1" cellpadding="8" style="margin-top:10px; border-collapse:collapse;">
+    <thead style="background:#f3f4f6;">
+      <tr><th>Month</th><th>Amount</th></tr>
+    </thead>
+    <tbody id="earningsTable"></tbody>
+  </table>
+</section>
 
-    document.getElementById("loginForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlrClECVKJ7iTjkZGecibnVScjLJNr1wYCgMCrl29_tgi3OskOW6QmGV_nXqVE7cns/exec";
 
-      const email = document.getElementById("email").value.trim();
-      const affiliateID = document.getElementById("affiliateID").value.trim();
-      const message = document.getElementById("loginMessage");
+  const loginForm = document.getElementById("loginForm");
+  const loginSection = document.getElementById("login-section");
+  const dashboard = document.getElementById("dashboard");
+  const logoutBtn = document.getElementById("logoutBtn");
 
-      message.textContent = "Logging in...";
+  // Handle login
+  loginForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-      try {
-        const response = await fetch(`${SCRIPT_URL}?action=login&email=${encodeURIComponent(email)}&affiliateID=${encodeURIComponent(affiliateID)}`);
-        const data = await response.json();
+    const email = document.getElementById("email").value.trim();
+    const affiliateID = document.getElementById("affiliateID").value.trim();
+    const message = document.getElementById("loginMessage");
+    message.style.color = "black";
+    message.textContent = "🔄 Logging in...";
 
-        if (!data.success) {
-          message.textContent = data.message;
-          return;
-        }
+    try {
+      const response = await fetch(`${SCRIPT_URL}?action=login&email=${encodeURIComponent(email)}&affiliateID=${encodeURIComponent(affiliateID)}`);
+      const data = await response.json();
 
-        // Show dashboard
-        document.getElementById("login-section").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-
-        document.getElementById("userName").textContent = data.user.name;
-        document.getElementById("userEmail").textContent = data.user.email;
-        document.getElementById("totalEarnings").textContent = data.totalEarnings;
-
-        const table = document.getElementById("earningsTable");
-        table.innerHTML = "";
-        data.breakdown.forEach(item => {
-          const row = `<tr><td>${item.month}</td><td>₹${item.amount}</td></tr>`;
-          table.insertAdjacentHTML("beforeend", row);
-        });
-
-      } catch (err) {
-        message.textContent = "❌ Error connecting to server: " + err.message;
+      if (!data.success) {
+        message.style.color = "red";
+        message.textContent = data.message;
+        return;
       }
+
+      // Save session in localStorage
+      localStorage.setItem("affiliateUser", JSON.stringify(data.user));
+
+      // Show dashboard
+      loginSection.style.display = "none";
+      dashboard.style.display = "block";
+      populateDashboard(data);
+
+    } catch (err) {
+      message.style.color = "red";
+      message.textContent = "❌ Error connecting to server: " + err.message;
+    }
+  });
+
+  // Populate dashboard with data
+  function populateDashboard(data) {
+    document.getElementById("userName").textContent = data.user.name;
+    document.getElementById("userEmail").textContent = data.user.email;
+    document.getElementById("totalEarnings").textContent = data.totalEarnings;
+
+    const table = document.getElementById("earningsTable");
+    table.innerHTML = "";
+    data.breakdown.forEach(item => {
+      const row = `<tr><td>${item.month}</td><td>₹${item.amount}</td></tr>`;
+      table.insertAdjacentHTML("beforeend", row);
     });
-  </script><footer>
+  }
+
+  // Handle logout
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("affiliateUser");
+    dashboard.style.display = "none";
+    loginSection.style.display = "block";
+    document.getElementById("loginMessage").textContent = "";
+    loginForm.reset();
+  });
+
+  // Auto login if session exists
+  window.addEventListener("DOMContentLoaded", async () => {
+    const savedUser = localStorage.getItem("affiliateUser");
+    if (savedUser) {
+      try {
+        const user = JSON.parse(savedUser);
+        const response = await fetch(`${SCRIPT_URL}?action=login&email=${encodeURIComponent(user.email)}&affiliateID=${encodeURIComponent(user.affiliateID)}`);
+        const data = await response.json();
+        if (data.success) {
+          loginSection.style.display = "none";
+          dashboard.style.display = "block";
+          populateDashboard(data);
+        }
+      } catch (err) {
+        console.error("Auto-login failed:", err);
+      }
+    }
+  });
+</script>
+<footer>
   <p>
     © 2025 
     <a href="https://litesites.planetdigit.com" target="_blank" style="color:#4f46e5; text-decoration:none; font-weight:600;">
