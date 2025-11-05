@@ -10,7 +10,55 @@
   <link href="css/style.css" rel="stylesheet">
   
 </head>
-<body><!-- Hero Section -->
+<body><!-- Navbar -->
+<nav style="background-color:#4f46e5; color:#fff; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+  <!-- Logo / Brand -->
+  <a href="index.html" style="color:#fff; font-size:1.5rem; font-weight:700; text-decoration:none;">LiteSites</a>
+
+  <!-- Menu Toggle (for mobile) -->
+  <button id="menu-toggle" style="background:none; border:none; color:white; font-size:1.5rem; display:none;">☰</button>
+
+  <!-- Nav Links -->
+  <div id="nav-links" style="display:flex; gap:1.5rem;">
+    <a href="index.html" style="color:#fff; text-decoration:none; font-weight:500;">Home</a>
+    <a href="#benefits" style="color:#fff; text-decoration:none; font-weight:500;">Benefits</a>
+    <a href="#commission" style="color:#fff; text-decoration:none; font-weight:500;">Earnings</a>
+    <a href="#signup" style="color:#fff; text-decoration:none; font-weight:500;">Join</a>
+    <a href="#faq" style="color:#fff; text-decoration:none; font-weight:500;">FAQ</a>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.display = 'flex';
+      links.style.flexDirection = 'column';
+      links.style.width = '100%';
+      links.style.marginTop = '1rem';
+    }
+  });
+
+  // Responsive behavior
+  function handleResize() {
+    if (window.innerWidth > 768) {
+      links.style.display = 'flex';
+      toggle.style.display = 'none';
+    } else {
+      links.style.display = 'none';
+      toggle.style.display = 'block';
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+</script>
+<!-- Hero Section -->
 <header>
   <h1>Become a LiteSites Affiliate Partner</h1>
   <p>Earn recurring income by sharing the power of LiteSites with your network.</p>
