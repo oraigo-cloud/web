@@ -27,14 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("UPI ID", form.upi.value);
     formData.append("Message", form.message.value);
     formData.append("Referral ID", form.refid.value);
+    formData.append("Plan", form.plan.value); // assuming there’s a plan field
 
     // Simulate 5-second delay before submission
     setTimeout(async () => {
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbzIouDUnkUTqqQyEV5EsWL6BNxzfSayfE0DZrsj4CdfFQfpZitbJgrK54-jbzb7XRLi/exec", {
-          method: "POST",
-          body: formData
-        });
+        const response = await fetch(
+          "https://script.google.com/macros/s/AKfycbzIouDUnkUTqqQyEV5EsWL6BNxzfSayfE0DZrsj4CdfFQfpZitbJgrK54-jbzb7XRLi/exec",
+          {
+            method: "POST",
+            body: formData
+          }
+        );
 
         const text = await response.text();
         console.log("✅ Server response:", text);
@@ -47,7 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (text.includes("✅ Success")) {
           alert("✅ Your affiliate signup was submitted successfully!");
-          form.reset();
+          const selectedPlan = form.plan.value.trim().toLowerCase();
+
+          // Redirect if plan is "premium"
+          if (selectedPlan === "premium") {
+            window.location.href = "https://payments.cashfree.com/forms/litesites_premium";
+          } else {
+            form.reset();
+          }
         } else {
           alert("⚠️ Something went wrong: " + text);
         }
