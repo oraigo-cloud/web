@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiteSites - Simple Websites for Small Businesses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="css/style.css" rel="stylesheet">
+  
+</head>
+<body><!-- Navbar -->
+<nav style="background-color:#4f46e5; color:#fff; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+  <!-- Logo / Brand -->
+  <a href="index.html" style="color:#fff; font-size:1.5rem; font-weight:700; text-decoration:none;">LiteSites</a>
+
+  <!-- Menu Toggle (for mobile) -->
+  <button id="menu-toggle" style="background:none; border:none; color:white; font-size:1.5rem; display:none;">☰</button>
+
+  <!-- Nav Links -->
+  <div id="nav-links" style="display:flex; gap:1.5rem;">
+    <a href="index.html" style="color:#fff; text-decoration:none; font-weight:500;">Home</a>
+    <a href="index.html#features" style="color:#fff; text-decoration:none; font-weight:500;">Benefits</a>
+    <a href="affiliate.html#commission" style="color:#fff; text-decoration:none; font-weight:500;">Earnings</a>
+    <a href="affiliate.html#signup" style="color:#fff; text-decoration:none; font-weight:500;">Join</a>
+    <a href="affiliate.html#faq" style="color:#fff; text-decoration:none; font-weight:500;">FAQ</a>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.display = 'flex';
+      links.style.flexDirection = 'column';
+      links.style.width = '100%';
+      links.style.marginTop = '1rem';
+    }
+  });
+
+  // Responsive behavior
+  function handleResize() {
+    if (window.innerWidth > 768) {
+      links.style.display = 'flex';
+      toggle.style.display = 'none';
+    } else {
+      links.style.display = 'none';
+      toggle.style.display = 'block';
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+</script>
+
+
+  <section id="login-section">
+    <h2>Affiliate Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Enter your registered email" required>
+      <input type="text" id="affiliateID" placeholder="Enter your Affiliate ID" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginMessage" style="color:red;"></p>
+  </section>
+
+  <section id="dashboard" style="display:none;">
+    <h2>Welcome, <span id="userName"></span>!</h2>
+    <p>Logged in with: <strong id="userEmail"></strong></p>
+    <h3>Your Total Earnings: ₹<span id="totalEarnings">0</span></h3>
+
+    <h4>Earnings Breakdown</h4>
+    <table border="1" cellpadding="8" style="margin-top:10px;">
+      <thead>
+        <tr><th>Month</th><th>Amount</th></tr>
+      </thead>
+      <tbody id="earningsTable"></tbody>
+    </table>
+  </section>
+
+  <script>
+    const SCRIPT_URL = "YOUR_DEPLOYED_WEB_APP_URL"; // paste your Apps Script Web App URL here
+
+    document.getElementById("loginForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const affiliateID = document.getElementById("affiliateID").value.trim();
+      const message = document.getElementById("loginMessage");
+
+      message.textContent = "Logging in...";
+
+      try {
+        const response = await fetch(`${SCRIPT_URL}?action=login&email=${encodeURIComponent(email)}&affiliateID=${encodeURIComponent(affiliateID)}`);
+        const data = await response.json();
+
+        if (!data.success) {
+          message.textContent = data.message;
+          return;
+        }
+
+        // Show dashboard
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+        document.getElementById("userName").textContent = data.user.name;
+        document.getElementById("userEmail").textContent = data.user.email;
+        document.getElementById("totalEarnings").textContent = data.totalEarnings;
+
+        const table = document.getElementById("earningsTable");
+        table.innerHTML = "";
+        data.breakdown.forEach(item => {
+          const row = `<tr><td>${item.month}</td><td>₹${item.amount}</td></tr>`;
+          table.insertAdjacentHTML("beforeend", row);
+        });
+
+      } catch (err) {
+        message.textContent = "❌ Error connecting to server: " + err.message;
+      }
+    });
+  </script><footer>
+  <p>
+    © 2025 
+    <a href="https://litesites.planetdigit.com" target="_blank" style="color:#4f46e5; text-decoration:none; font-weight:600;">
+      LiteSites
+    </a>. 
+    All rights reserved. |
+    <a href="affiliate.html" style="color:#4f46e5; text-decoration:none; font-weight:600;">
+      Become an Affiliate
+    </a>
+  </p>
+</footer>
+
+
+
+
+</body>
+
+<script src="js/contact-bs-form.js"></script>
+<script src="js/affiliate_signup.js"></script>
+
+</html>
