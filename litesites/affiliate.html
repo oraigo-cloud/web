@@ -206,10 +206,9 @@
   </div>
 </section>
 
-
 <script>
-  // Auto-fill the referral ID field from URL parameter
   document.addEventListener("DOMContentLoaded", () => {
+    // --- Auto-fill the referral ID field from URL parameter ---
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref") || params.get("refid") || params.get("referral");
     if (ref) {
@@ -220,9 +219,8 @@
         // input.readOnly = true;
       }
     }
-  });
 
-  // --- Auto-select plan from URL parameter if present (optional) ---
+    // --- Auto-select plan from URL parameter if present (optional) ---
     const planParam = params.get("plan");
     if (planParam) {
       const form = document.getElementById("affiliateSignupForm");
@@ -259,9 +257,8 @@
       form.scrollIntoView({ behavior: "smooth" });
     }
   }
-
-  
 </script>
+
 
 
 <style>
