@@ -130,7 +130,10 @@
   <textarea name="message" id="message" rows="5" placeholder="Tell us how you plan to promote LiteSites" required></textarea>
 
 
-  <input type="text" name="refid" id="refid" placeholder="Referral ID" required>
+  <!--<input type="text" name="refid" id="refid" placeholder="Referral ID" required>-->
+
+  <input type="text" name="refid" id="refid" placeholder="Referral ID" readonly required>
+
 
   <button type="submit">Submit</button>
 </form>
@@ -160,6 +163,23 @@
     </div>
   </div>
 </section>
+
+
+<script>
+  // Auto-fill the referral ID field from URL parameter
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref") || params.get("refid") || params.get("referral");
+    if (ref) {
+      const input = document.getElementById("refid");
+      if (input) {
+        input.value = ref;
+        // Optionally make the field read-only to prevent edits
+        // input.readOnly = true;
+      }
+    }
+  });
+</script>
 <footer>
   <p>
     © 2025 
