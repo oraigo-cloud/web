@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Simulate 5-second delay before submission
     setTimeout(async () => {
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbzIouDUnkUTqqQyEV5EsWL6BNxzfSayfE0DZrsj4CdfFQfpZitbJgrK54-jbzb7XRLi/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxNSfXlUs8VOatKlKyVEO5egQR0WaGK6NQkNKVqSf5soozSQoov_OR__VBUtXy1pik/exec", {
           method: "POST",
           body: formData
         });
