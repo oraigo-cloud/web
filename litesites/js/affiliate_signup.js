@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("Social Media / Website Link", form.social.value);
     formData.append("UPI ID", form.upi.value);
     formData.append("Message", form.message.value);
+    formData.append("Referral ID", form.affid.value);
 
     // Simulate 5-second delay before submission
     setTimeout(async () => {
