@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EBT Labs | Training Partnerships</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="img/logos/ebtl_favicon.png">
+
+  <link rel="stylesheet" href="style_pt.css" />
+
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+    .navbar {
+      background-color: #0d1b2a;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+    .hero {
+      background: linear-gradient(rgba(13,27,42,0.8), rgba(13,27,42,0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 120px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .btn-custom {
+      background: #1b9aaa;
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #0d1b2a;
+    }
+    .footer {
+      background: #0d1b2a;
+      color: #ccc;
+      padding: 40px 0;
+    }
+    .footer a {
+      color: #1b9aaa;
+      text-decoration: none;
+    }
+
+    .stats {
+    background: #1b9aaa;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    }
+
+    .stat-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .stat-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-icon i {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    }
+
+
+    .training-card {
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .training-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .training-card h5 {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #0d1b2a;
+    }
+    .training-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body> <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">EBT Labs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#programs">Programs</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#partners">Partners</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Analysis Project Workshop — Excel & Python (3 sessions)</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#ffffff;--accent:#0b76ef;--muted:#64748b}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;background:var(--bg);color:#0b1724}
+    .container{max-width:900px;margin:28px auto;padding:20px}
+    .card{background:var(--card);border-radius:12px;padding:22px;box-shadow:0 6px 20px rgba(12,18,35,0.06)}
+    header{display:flex;gap:18px;align-items:center}
+    header img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 16px;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{border:1px solid #e6eefc;color:var(--accent);background:transparent}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:10px;text-align:left;border-bottom:1px solid #eef3fb}
+    th{background:#fbfdff}
+    .meta{font-size:13px;color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    footer{margin-top:18px;font-size:13px;color:var(--muted)}
+    .meet{display:block;margin:12px 0}
+    .note{background:#fff7e6;padding:10px;border-radius:8px;margin-top:12px;border-left:4px solid #ffd58a}
+    .image-gallery{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .image-gallery img{width:calc(33% - 10px);border-radius:10px;object-fit:cover}
+    @media(max-width:600px){.image-gallery img{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header>
+        <img src="https://web.planetdigit.com/ebtlabs/assets/logo.png" alt="EBT Labs Logo" onerror="this.style.display='none'" />
+        <div>
+          <h1>Data Analysis Project Workshop — Excel &amp; Python (3 sessions)</h1>
+          <p class="lead">A compact, hands-on workshop for college students to complete a small data-analysis project using Excel and Python (pandas). Sessions delivered live via Google Meet.</p>
+          <div class="meta">Organized by <a href="https://web.planetdigit.com/ebtlabs" target="_blank" rel="noopener">EBT Labs</a></div>
+        </div>
+      </header>
+
+      <div class="image-gallery">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt="Students working on laptops">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Python coding">
+        <img src="https://images.unsplash.com/photo-1581091215367-59ab6b7c46e2" alt="Excel data analysis">
+      </div>
+
+      <div class="grid">
+        <main>
+          <section>
+            <h2 style="font-size:16px;margin-top:12px">Workshop at-a-glance</h2>
+            <table aria-label="workshop-schedule">
+              <thead>
+                <tr><th>Session</th><th>Date</th><th>Time (IST)</th><th>Focus</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Session 1 — Day 1</td>
+                  <td>TBD</td>
+                  <td>10:00 — 13:00 IST</td>
+                  <td>Excel for data cleaning, exploration, pivot tables, basic charts</td>
+                </tr>
+                <tr>
+                  <td>Session 2 — Day 2</td>
+                  <td>TBD</td>
+                  <td>10:00 — 13:00 IST</td>
+                  <td>Python (pandas) for data cleaning, EDA, and visualizations</td>
+                </tr>
+                <tr>
+                  <td>Session 3 — Day 3</td>
+                  <td>TBD</td>
+                  <td>10:00 — 13:00 IST</td>
+                  <td>Project work, presentations, feedback & next steps</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3 style="margin-top:14px">Learning outcomes</h3>
+            <ul>
+              <li>Use Excel to import, clean and prepare a dataset for analysis.</li>
+              <li>Perform exploratory data analysis and create effective visualizations in Excel and Python.</li>
+              <li>Write basic pandas scripts to transform and summarize data.</li>
+              <li>Complete and present a small data-analysis project by the end of the workshop.</li>
+            </ul>
+
+            <h3 style="margin-top:12px">Prerequisites & software</h3>
+            <ul>
+              <li>Laptop with recent Excel (or Office 365) installed.</li>
+              <li>Python 3.8+ with pandas, matplotlib; we will provide a starter notebook (or you can use Google Colab).</li>
+              <li>Google account to join Google Meet and access shared materials.</li>
+            </ul>
+
+            <h3 style="margin-top:12px">Materials provided</h3>
+            <ul>
+              <li>Workshop slides and sample datasets.</li>
+              <li>Starter Jupyter notebook & solution notebook.</li>
+              <li>Certificate of participation (optional — subject to organizer).</li>
+            </ul>
+
+            <h3 style="margin-top:12px">Instructor</h3>
+            <p class="meta">Delivered by instructors from <a href="https://web.planetdigit.com/ebtlabs" target="_blank" rel="noopener">EBT Labs</a>. Contact: <a href="mailto:dsa.ebts@gmail.com">dsa.ebts@gmail.com</a></p>
+
+            <h3 style="margin-top:12px">How to join (Google Meet)</h3>
+            <p>Join the live sessions using the Google Meet link below. Please replace the example meet URL with your actual meeting link before sharing this page.</p>
+            <a class="btn btn-primary meet" href="https://meet.google.com/abc-defg-hij" target="_blank" rel="noopener">Join workshop on Google Meet</a>
+            <p class="meta">Example Meet link format: <code>https://meet.google.com/abc-defg-hij</code> — replace with your real meeting URL.</p>
+
+            <h3 style="margin-top:12px">Assessment & project</h3>
+            <p>Participants will form small groups (2–4) or work individually to complete a short data-analysis project using the supplied dataset. Each group will present a 5–7 minute demo during Session 3.</p>
+
+            <h3 style="margin-top:12px">Registration</h3>
+            <p>To register, share participant names and emails with the college coordinator or use the registration link below (if you have one).</p>
+            <a class="btn btn-ghost" href="mailto:dsa.ebts@gmail.com?subject=Registration%20-%20Data%20Analysis%20Workshop">Register via email</a>
+          </section>
+        </main>
+
+        <aside>
+          <div style="background:#fbfdff;border-radius:10px;padding:14px">
+            <h4 style="margin:0 0 8px 0">Quick details</h4>
+            <div class="meta">Format: Live remote sessions (Google Meet)</div>
+            <div class="meta">Duration: 3 sessions, 3 hours each</div>
+            <div class="meta">Level: Beginner → Intermediate</div>
+            <div class="meta">Capacity: 25–40 students (recommended)</div>
+
+            <h4 style="margin-top:12px">Contact</h4>
+            <p class="meta">Organizer: EBT Labs</p>
+            <p class="meta">Website: <a href="https://web.planetdigit.com/ebtlabs" target="_blank" rel="noopener">web.planetdigit.com/ebtlabs</a></p>
+            <p class="meta">Email: <a href="mailto:dsa.ebts@gmail.com">dsa.ebts@gmail.com</a></p>
+
+            <h4 style="margin-top:12px">Suggested follow-ups</h4>
+            <ul>
+              <li>Provide links to the datasets and Colab notebooks ahead of each session.</li>
+              <li>Share a short pre-workshop checklist for students (install Python, confirm Excel version, test Meet access).</li>
+              <li>Record sessions and share recordings for participants who miss a session.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+
+    </div>
+  </div>
+<!-- Footer -->
+<footer class="footer text-center" style="background-color: #111; color: #fff; padding: 40px 0;">
+  <div class="container" style="max-width: 1100px; margin: auto;">
+    <div class="footer-content" 
+         style="display: flex; flex-wrap: wrap; justify-content: space-between; text-align: left;">
+
+      <!-- Company Section -->
+      <div class="footer-section" style="flex: 1 1 220px; margin: 10px;">
+        <h5 style="font-weight: 700; margin-bottom: 10px;">Company</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="#" style="color: #ccc; text-decoration: none;">About Us</a></li>
+          <li><a href="#" style="color: #ccc; text-decoration: none;">Careers</a></li>
+          <li><a href="#" style="color: #ccc; text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Section -->
+      <div class="footer-section" style="flex: 1 1 220px; margin: 10px;">
+        <h5 style="font-weight: 700; margin-bottom: 10px;">Resources</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="trainings_conducted.html" style="color: #ccc; text-decoration: none;">Trainings Conducted</a></li>
+          <li><a href="#" style="color: #ccc; text-decoration: none;">Blog</a></li>
+          <li><a href="#" style="color: #ccc; text-decoration: none;">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal Section -->
+      <div class="footer-section" style="flex: 1 1 220px; margin: 10px;">
+        <h5 style="font-weight: 700; margin-bottom: 10px;">Legal</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="#" style="color: #ccc; text-decoration: none;">Privacy Policy</a></li>
+          <li><a href="#" style="color: #ccc; text-decoration: none;">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://chat.whatsapp.com/F6oB2JsDDpjCHK6W9SgKpT"
+         target="_blank"
+         class="btn btn-custom"
+         style="color: #fff; background-color: #25D366; padding: 12px 25px; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-block;">
+        Join Our WhatsApp Community
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div style="margin-top: 30px; border-top: 1px solid #333; padding-top: 15px; text-align: center;">
+      <p style="margin: 0; font-size: 14px;">&copy; 2025 EBT Labs. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap + AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
+<script src="js/contact_form.js"></script>
+</body>
+</html>
