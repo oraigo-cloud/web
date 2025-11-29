@@ -43,30 +43,44 @@ const REPO = "web";
 const BRANCH = "main";
 const ROOT_PATH = "ebooks";
 
+// Only allowed ebook formats
+const allowedExt = [
+  ".pdf", ".epub", ".mobi", ".azw3",
+  ".txt", ".docx", ".rtf"
+];
+
 const apiBase = `https://api.github.com/repos/${USER}/${REPO}/contents/`;
 
-// Recursive function to scan folders
-async function fetchFolder(path) {
+// Recursive folder reader
+async function fetchFolder(path, isRoot = false) {
   const response = await fetch(`${apiBase}${path}?ref=${BRANCH}`);
   const items = await response.json();
-
   const results = [];
 
   for (const item of items) {
+
     if (item.type === "dir") {
-      // Recursively fetch subfolder
-      const sub = await fetchFolder(item.path);
+      // Recursively scan subfolders
+      const sub = await fetchFolder(item.path, false);
       results.push({
         type: "folder",
         name: item.name,
         path: item.path,
         children: sub
       });
-    } else if (item.type === "file") {
+    }
+
+    if (item.type === "file") {
+
+      // Skip files in the root ebooks/ directory
+      if (isRoot) continue;
+
+      const ext = item.name.substring(item.name.lastIndexOf(".")).toLowerCase();
+      if (!allowedExt.includes(ext)) continue;
+
       results.push({
         type: "file",
         name: item.name,
-        path: item.path,
         url: item.download_url
       });
     }
@@ -74,9 +88,10 @@ async function fetchFolder(path) {
   return results;
 }
 
-// Render folders and files
+// Render results
 function renderItems(items, container) {
   items.forEach(item => {
+
     if (item.type === "folder") {
       const div = document.createElement("div");
       div.className = "folder";
@@ -99,12 +114,13 @@ function renderItems(items, container) {
   });
 }
 
-// Main
+// Main exec
 (async () => {
   const container = document.getElementById("books");
   container.innerHTML = "";
 
-  const data = await fetchFolder(ROOT_PATH);
+  // Root directory is scanned with isRoot = true to block its files
+  const data = await fetchFolder(ROOT_PATH, true);
   renderItems(data, container);
 })();
 </script>
