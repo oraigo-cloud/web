@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdTech — Demo & Portfolio</title>
+  <meta name="description" content="A simple single-file HTML presentation for sharing demo recordings, training programs, resume and web projects." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#60a5fa;--muted:#9aa7bf;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; background:linear-gradient(180deg,#071023 0%, #071829 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    .container{max-width:980px;margin:36px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .brand{display:flex;flex-direction:column}
+    h1{font-size:1.6rem;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .full{grid-column:1/-1}
+    .section-title{font-weight:600;margin-bottom:10px;color:#fff}
+    a.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#3b82f6);color:#071025;text-decoration:none;font-weight:600}
+
+    video{width:100%;height:auto;border-radius:8px;background:var(--glass)}
+    ul{margin:0;padding-left:18px;color:var(--muted)}
+    li{margin:8px 0}
+    .meta{font-size:0.9rem;color:var(--muted)}
+    footer{margin-top:26px;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    /* Responsive */
+    @media (max-width:820px){.grid{grid-template-columns:1fr}header{gap:10px}.container{padding:16px}}
+    .links{display:flex;gap:8px;flex-wrap:wrap}
+    .project-list a{color:var(--accent);text-decoration:none}
+    .note{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;color:var(--muted);font-size:0.95rem}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,#183a7b,#0b2540);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px">ED</div>
+      <div class="brand">
+        <h1>EdTech — Demos & Portfolio -Sagar V</h1>
+        <p class="lead">Contains demo recordings, trainings, resume and completed projects — ready to share.</p>
+        <p style="margin:4px 0 0; color:#9aa7bf; font-size:0.9rem;"></p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Videos -->
+      <section class="card full" id="demos">
+        <div class="section-title">Demo Recordings</div>
+        <p class="meta">Playable demos. Use the play button to preview or right-click & "Save video as..." to download.</p>
+        <div style="display:grid;gap:12px;margin-top:12px">
+          <div>
+            <strong>Energy Quest (WebM)</strong>
+            <video controls preload="metadata">
+              <source src="https://virmani-sagar.github.io/sample_recordings/energy-quest-game.webm" type="video/webm">
+              Your browser does not support the video tag. <a href="https://virmani-sagar.github.io/sample_recordings/energy-quest-game.webm">Download</a>
+            </video>
+            <div class="meta">Format: .webm — Hosted on GitHub Pages</div>
+          </div>
+
+          <div>
+            <strong>WordPress Installation (MP4)</strong>
+            <video controls preload="metadata">
+              <source src="https://virmani-sagar.github.io/sample_recordings/wordpress-installation.mp4" type="video/mp4">
+              Your browser does not support the video tag. <a href="https://virmani-sagar.github.io/sample_recordings/wordpress-installation.mp4">Download</a>
+            </video>
+            <div class="meta">Format: .mp4 — Hosted on GitHub Pages</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trainings -->
+      <section class="card" id="trainings">
+        <div class="section-title">Training programs covered</div>
+        <p class="note">Listed trainings are hosted on PlanetDigit (click the link to view the full list).</p>
+        <div style="margin-top:10px">
+          <a class="btn" href="https://web.planetdigit.com/ebtlabs/trainings_conducted.html" target="_blank" rel="noopener">Open training list</a>
+        </div>
+      </section>
+
+      <!-- Resume -->
+      <section class="card" id="resume">
+        <div class="section-title">Resume / Profile</div>
+        <p class="meta">Clickable resume and profile page. Use this link to view contact details, experience, and downloadable CV (if available on the profile).</p>
+        <div style="margin-top:10px" class="links">
+          <a class="btn" href="https://virmani-sagar.github.io/profile/" target="_blank" rel="noopener">View Resume / Profile</a>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="card" id="projects">
+        <div class="section-title">Web projects — completed (static sites / CMS in Python)</div>
+        <p class="meta">Static sites built using CMS in Python. Click each to open the live site.</p>
+        <ul class="project-list" style="margin-top:12px">
+          <li><a href="https://litesites.planetdigit.com/datasphere" target="_blank" rel="noopener">Datasphere</a></li>
+          <li><a href="https://litesites.planetdigit.com/ebtlabs" target="_blank" rel="noopener">EBT Labs</a></li>
+          <li><a href="https://litesites.planetdigit.com/adventuresaathi" target="_blank" rel="noopener">AdventureSaathi</a></li>
+          <li><a href="https://litesites.planetdigit.com/litesites/" target="_blank" rel="noopener">Litesites Index</a></li>
+        </ul>
+      </section>
+
+      <!-- Quick share / notes -->
+      
+
+    </div>
+
+    
+  </div>
+
+</body>
+</html>
