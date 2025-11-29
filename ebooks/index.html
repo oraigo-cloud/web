@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ebook List</title>
+<title>Ebook Library</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -11,21 +11,22 @@
   h1 {
     text-align: center;
   }
-  .book-list {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  .folder {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
   }
   .book-item {
-    padding: 15px;
-    border: 1px solid #bbb;
-    background: #fdfdfd;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0 5px 20px;
+    background: #f9f9f9;
     border-radius: 6px;
   }
   .book-item a {
     text-decoration: none;
-    font-weight: bold;
     color: #333;
+    font-weight: bold;
   }
 </style>
 </head>
@@ -40,35 +41,72 @@
 const USER = "oraigo-cloud";
 const REPO = "web";
 const BRANCH = "main";
-const PATH = "ebooks";
+const ROOT_PATH = "ebooks";
 
-// GitHub API endpoint
-const API_URL = `https://api.github.com/repos/${USER}/${REPO}/contents/${PATH}?ref=${BRANCH}`;
+const apiBase = `https://api.github.com/repos/${USER}/${REPO}/contents/`;
 
-fetch(API_URL)
-  .then(res => res.json())
-  .then(items => {
-    const container = document.getElementById("books");
-    container.innerHTML = "";
-    
-    const bookList = document.createElement("div");
-    bookList.className = "book-list";
+// Recursive function to scan folders
+async function fetchFolder(path) {
+  const response = await fetch(`${apiBase}${path}?ref=${BRANCH}`);
+  const items = await response.json();
 
-    items.forEach(item => {
-      if (item.type === "file") {
-        const div = document.createElement("div");
-        div.className = "book-item";
-        div.innerHTML = `<a href="${item.download_url}" target="_blank">${item.name}</a>`;
-        bookList.appendChild(div);
-      }
-    });
+  const results = [];
 
-    container.appendChild(bookList);
-  })
-  .catch(err => {
-    document.getElementById("books").textContent = "Failed to load ebooks.";
-    console.error(err);
+  for (const item of items) {
+    if (item.type === "dir") {
+      // Recursively fetch subfolder
+      const sub = await fetchFolder(item.path);
+      results.push({
+        type: "folder",
+        name: item.name,
+        path: item.path,
+        children: sub
+      });
+    } else if (item.type === "file") {
+      results.push({
+        type: "file",
+        name: item.name,
+        path: item.path,
+        url: item.download_url
+      });
+    }
+  }
+  return results;
+}
+
+// Render folders and files
+function renderItems(items, container) {
+  items.forEach(item => {
+    if (item.type === "folder") {
+      const div = document.createElement("div");
+      div.className = "folder";
+      div.textContent = item.name;
+      container.appendChild(div);
+
+      const subContainer = document.createElement("div");
+      subContainer.style.marginLeft = "20px";
+      container.appendChild(subContainer);
+
+      renderItems(item.children, subContainer);
+    }
+
+    if (item.type === "file") {
+      const div = document.createElement("div");
+      div.className = "book-item";
+      div.innerHTML = `<a href="${item.url}" target="_blank">${item.name}</a>`;
+      container.appendChild(div);
+    }
   });
+}
+
+// Main
+(async () => {
+  const container = document.getElementById("books");
+  container.innerHTML = "";
+
+  const data = await fetchFolder(ROOT_PATH);
+  renderItems(data, container);
+})();
 </script>
 
 </body>
