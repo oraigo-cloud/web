@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Data Analyst Interview Feedback – Mayank</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f4f6f8;
+        color: #333;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    .summary {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .score {
+        font-size: 22px;
+        font-weight: bold;
+        color: #1e8449;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #ffffff;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #2c3e50;
+        color: white;
+    }
+    .feedback {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Interview Evaluation Report</h1>
+<h2>Candidate Name: Mayank</h2>
+
+<div class="summary">
+    <p><strong>Overall Performance:</strong> <span class="score">82%</span></p>
+</div>
+
+<h2>Performance Breakdown (Percentage)</h2>
+
+<table>
+    <tr>
+        <th>Evaluation Parameter</th>
+        <th>Score (%)</th>
+    </tr>
+    <tr><td>Conceptual Understanding</td><td>83%</td></tr>
+    <tr><td>Problem Solving</td><td>83%</td></tr>
+    <tr><td>Technical Skills</td><td>67%</td></tr>
+    <tr><td>Communication</td><td>78%</td></tr>
+    <tr><td>Excel Skills</td><td>89%</td></tr>
+    <tr><td>SQL Skills</td><td>86%</td></tr>
+    <tr><td>Learning Mindset</td><td>86%</td></tr>
+</table>
+
+<h2>Graphical Representation</h2>
+<canvas id="percentageChart" width="800" height="400"></canvas>
+
+<div class="feedback">
+    <h2>Detailed Interview Feedback</h2>
+
+    <h3>Key Strengths</h3>
+    <ul>
+        <li>Strong overall analytical and problem-solving capability.</li>
+        <li>Excellent hands-on skills in Excel and SQL.</li>
+        <li>Demonstrates clear conceptual understanding of data fundamentals.</li>
+        <li>Communicates insights effectively with good structure.</li>
+        <li>Shows a strong learning mindset and adaptability.</li>
+    </ul>
+
+    <h3>Areas for Improvement</h3>
+    <ul>
+        <li>Can further strengthen advanced technical depth (edge cases, optimization).</li>
+        <li>Storytelling can be enhanced by linking insights more explicitly to business impact.</li>
+    </ul>
+
+    <h3>Final Assessment</h3>
+    <p>
+        Mayank demonstrated a strong performance across most evaluation parameters and
+        is well-prepared for a Data Analyst or Specialist role. With minor improvements
+        in advanced technical depth and business storytelling, he has the potential to
+        perform at a high level and deliver consistent value in data-driven environments.
+    </p>
+</div>
+
+<script>
+const ctx = document.getElementById('percentageChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [
+            'Conceptual Understanding',
+            'Problem Solving',
+            'Technical Skills',
+            'Communication',
+            'Excel',
+            'SQL',
+            'Learning Mindset'
+        ],
+        datasets: [{
+            label: 'Performance (%)',
+            data: [83, 83, 67, 78, 89, 86, 86],
+            backgroundColor: '#2ecc71'
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
+
