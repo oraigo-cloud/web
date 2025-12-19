@@ -58,15 +58,7 @@
   window.addEventListener('resize', handleResize);
   handleResize();
 </script>
-
-  <header>
-    <h1>LiteSites</h1>
-    <p>Lightweight Websites. Big Impact.</p>
-    <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
-  </header>
-
-  
-    <section>
+  <section>
     <h2>Why LiteSites?</h2>
     <div class="features">
     <div class="feature">
@@ -115,30 +107,25 @@
       
     </div>
   </section>
+  <section id="contact">
+  <h2 class="text-center mb-4">Start Your Website Today</h2>
 
-
-  <section id="contact" class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-5">Start Your Website Today</h2>
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6">
-        <form id="contactBusinessForm" class="p-5 bg-light rounded-3 shadow-sm">
-          <div class="mb-4">
-            <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Your Name" required>
-          </div>
-          <div class="mb-4">
-            <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Your Email" required>
-          </div>
-          <div class="mb-4">
-            <input type="text" name="business" id="business" class="form-control form-control-lg" placeholder="Business Name" required>
-          </div>
-          <div class="mb-4">
-            <textarea name="message" id="message" class="form-control form-control-lg" rows="6" placeholder="Tell us about your website needs"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
-        </form>
+  <div class="container d-flex justify-content-center">
+    <form id="contactBusinessForm" class="p-5 bg-light rounded-3 shadow-sm" style="width:100%; max-width:600px;">
+      <div class="mb-4">
+        <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Your Name" required>
       </div>
-    </div>
+      <div class="mb-4">
+        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Your Email" required>
+      </div>
+      <div class="mb-4">
+        <input type="text" name="business" id="business" class="form-control form-control-lg" placeholder="Business Name" required>
+      </div>
+      <div class="mb-4">
+        <textarea name="message" id="message" class="form-control form-control-lg" rows="6" placeholder="Tell us about your website needs"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg w-100">Submit</button>
+    </form>
   </div>
 
   <!-- Countdown popup -->
