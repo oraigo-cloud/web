@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Data Analyst Interview Feedback – Rahul</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f4f6f8;
+        color: #333;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    .summary {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .score {
+        font-size: 22px;
+        font-weight: bold;
+        color: #1e8449;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #ffffff;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #2c3e50;
+        color: white;
+    }
+    .feedback {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Interview Evaluation Report</h1>
+<h2>Candidate Name: Rahul</h2>
+
+<div class="summary">
+    <p><strong>Overall Performance:</strong> <span class="score">78%</span></p>
+</div>
+
+<h2>Performance Breakdown (Percentage)</h2>
+
+<table>
+    <tr>
+        <th>Evaluation Parameter</th>
+        <th>Score (%)</th>
+    </tr>
+    <tr><td>Conceptual Understanding</td><td>67%</td></tr>
+    <tr><td>Problem Solving</td><td>67%</td></tr>
+    <tr><td>Technical Skills</td><td>83%</td></tr>
+    <tr><td>Communication</td><td>89%</td></tr>
+    <tr><td>Excel Skills</td><td>67%</td></tr>
+    <tr><td>SQL Skills</td><td>86%</td></tr>
+    <tr><td>Learning Mindset</td><td>86%</td></tr>
+</table>
+
+<h2>Graphical Representation</h2>
+<canvas id="percentageChart" width="800" height="400"></canvas>
+
+<div class="feedback">
+    <h2>Detailed Interview Feedback</h2>
+
+    <h3>Key Strengths</h3>
+    <ul>
+        <li>Strong communication skills with clear explanation of analytical thinking.</li>
+        <li>Good technical foundation with solid SQL proficiency.</li>
+        <li>Demonstrates a strong learning mindset and openness to feedback.</li>
+    </ul>
+
+    <h3>Areas for Improvement</h3>
+    <ul>
+        <li>Conceptual depth and problem-solving consistency can be further strengthened.</li>
+        <li>Excel skills can be improved for advanced analytical and automation use cases.</li>
+    </ul>
+
+    <h3>Final Assessment</h3>
+    <p>
+        Rahul showed a balanced performance with particular strengths in communication,
+        SQL skills, and learning mindset. With focused improvement in conceptual understanding,
+        Excel proficiency, and structured problem-solving approaches, Rahul has strong potential
+        to grow into a dependable Data Analyst capable of contributing effectively to
+        data-driven teams.
+    </p>
+</div>
+
+<script>
+const ctx = document.getElementById('percentageChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [
+            'Conceptual Understanding',
+            'Problem Solving',
+            'Technical Skills',
+            'Communication',
+            'Excel',
+            'SQL',
+            'Learning Mindset'
+        ],
+        datasets: [{
+            label: 'Performance (%)',
+            data: [67, 67, 83, 89, 67, 86, 86],
+            backgroundColor: '#2ecc71'
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
+
