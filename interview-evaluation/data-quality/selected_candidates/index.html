@@ -26,7 +26,6 @@
 </head>
 
 <body>
-
 <div id="authOverlay" style="
     position: fixed;
     inset: 0;
@@ -40,29 +39,37 @@
         background: white;
         padding: 30px;
         border-radius: 8px;
-        width: 320px;
+        width: 340px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         text-align: center;
     ">
-        <h4>Access Restricted</h4>
-        <p>Please enter password</p>
+        <h4>Restricted Access</h4>
+        <p>Enter your email & password</p>
+
+        <input
+            type="email"
+            id="emailInput"
+            class="form-control mb-2"
+            placeholder="Email"
+        />
 
         <input
             type="password"
             id="passwordInput"
             class="form-control mb-3"
-            placeholder="Enter password"
+            placeholder="Password"
         />
 
-        <button class="btn btn-success w-100" onclick="checkPassword()">
+        <button class="btn btn-success w-100" onclick="checkAccess()">
             Unlock
         </button>
 
         <p id="errorMsg" style="color:red; margin-top:10px; display:none;">
-            Incorrect password
+            Invalid email or password
         </p>
     </div>
 </div>
+
 
 
 
